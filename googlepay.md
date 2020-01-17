@@ -25,7 +25,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
         type: 'PAYMENT_GATEWAY',
         parameters: {
           'gateway': 'payonline',
-          'gatewayMerchantId': $("#MerchantId").val()
+          'gatewayMerchantId': '123'//ваш MID в системе PayOnline
         }
       };
     const baseCardPaymentMethod = {
@@ -91,18 +91,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
                 buttonColor: 'black',
                 buttonType: 'long'
             });
-
-        const buttonMobile =
-            paymentsClient.createButton({
-                onClick: onGooglePaymentButtonClicked,
-                buttonColor: 'black',
-                buttonType: 'long'
-            });
-
         $("#gpay-container")[0].appendChild(button);
-
-        $("#container-mobile")[0].appendChild(buttonMobile);
-
     }
 
     //получение цены
