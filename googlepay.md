@@ -18,9 +18,124 @@ GooglePay это быстрый и безопасный метод оплаты 
 
 При использовании Google Pay API для оплаты через PayOnline покупатели смогут использовать платёжные системы: Visa и MasterCard.
 
-Пример кода…
+```javascript
+const allowedCardNetworks = ["MASTERCARD", "VISA"];
+    const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
+    const tokenizationSpecification = {
+        type: 'PAYMENT_GATEWAY',
+        parameters: {
+          'gateway': 'payonline',
+          'gatewayMerchantId': $("#MerchantId").val()
+        }
+      };
+    const baseCardPaymentMethod = {
+        type: 'CARD',
+        parameters: {
+            allowedAuthMethods: allowedCardAuthMethods,
+            allowedCardNetworks: allowedCardNetworks
+        }
+    };
+    const cardPaymentMethod = Object.assign(
+        {},
+        baseCardPaymentMethod,
+        {
+            tokenizationSpecification: tokenizationSpecification
+        }
+    );
+    let paymentsClient = null;
+    function getGoogleIsReadyToPayRequest() {
+        return Object.assign(
+            {},
+            baseRequest,
+            {
+                allowedPaymentMethods: [baseCardPaymentMethod]
+            }
+        );
+    }
+    function getGooglePaymentDataRequest() {
+        const paymentDataRequest = Object.assign({}, baseRequest);
+        paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
+        paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
+        paymentDataRequest.merchantInfo = {
+            merchantName: 'Example Merchant'
+        };
+        return paymentDataRequest;
+    }
 
-AAAAAAAAAAAAAAA
+    function getGooglePaymentsClient() {
+        if (paymentsClient === null) {
+            paymentsClient = new google.payments.api.PaymentsClient({ environment: $('[name="environment"]').val() });
+        }
+        return paymentsClient;
+    }
+    
+    //Обработчик загрузки Google Pay
+    function onGooglePayLoaded() {
+        const paymentsClient = getGooglePaymentsClient();
+        paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
+            .then(function (response) {
+                if (response.result) {
+                    addGooglePayButton();
+                }
+            })
+            .catch(function (err) {
+                console.error(err);
+            });
+    }
+
+    function addGooglePayButton() {
+        const paymentsClient = getGooglePaymentsClient();
+        const button =
+            paymentsClient.createButton({
+                onClick: onGooglePaymentButtonClicked,
+                buttonColor: 'black',
+                buttonType: 'long'
+            });
+
+        const buttonMobile =
+            paymentsClient.createButton({
+                onClick: onGooglePaymentButtonClicked,
+                buttonColor: 'black',
+                buttonType: 'long'
+            });
+
+        $("#gpay-container")[0].appendChild(button);
+
+        $("#container-mobile")[0].appendChild(buttonMobile);
+
+    }
+
+    //получение цены
+    function getGoogleTransactionInfo() {
+        var price = $("#googleAmount").val();
+        return {
+            currencyCode: 'RUB',
+            totalPriceStatus: 'FINAL',
+            totalPrice: price
+        };
+    }
+
+    //обработчик нажатия кнопки G-Pay
+    function onGooglePaymentButtonClicked() {
+        const paymentDataRequest = getGooglePaymentDataRequest();
+        paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
+
+        const paymentsClient = getGooglePaymentsClient();
+        paymentsClient.loadPaymentData(paymentDataRequest)
+            .then(function (paymentData) {
+                processPayment(paymentData);
+            })
+            .catch(function (err) {
+                console.error(err);
+            });
+    }
+
+    function processPayment(paymentData) {
+        var token = JSON.stringify(paymentData);
+        console.log(token);
+        //отправка токена на бэкенд ...
+    }
+```
 
  
 
