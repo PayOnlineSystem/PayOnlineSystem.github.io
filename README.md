@@ -142,8 +142,8 @@
 
 ## **Метод Auth**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/auth/](https://secure.payonlinesystem.com/payment/transaction/auth/) \
-_Описание: _авторизует карту и блокирует на ней указанную сумму. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/auth/](https://secure.payonlinesystem.com/payment/transaction/auth/) \
+Описание: авторизует карту и блокирует на ней указанную сумму. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
 
 <p style="text-align: right">
 <em>Параметры метода Auth</em></p>
@@ -622,8 +622,8 @@ Id={Id}&Operation=Auth&Result={Result}&Code={Code}&Status={Status}&binCountry={C
 
 ## **Метод ApplePay**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/applepay/](https://secure.payonlinesystem.com/payment/transaction/applepay/) \
-_Описание: _авторизует карту и блокирует на ней указанную сумму. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/applepay/](https://secure.payonlinesystem.com/payment/transaction/applepay/) \
+Описание: авторизует карту и блокирует на ней указанную сумму. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
 
 <p style="text-align: right">
 <em>Параметры метода ApplePay</em></p>
@@ -1080,8 +1080,8 @@ Id={Id}&Operation=Auth&Result={Result}&Code={Code}&Status={Status}&binCountry={C
 
 ## **Метод Moto**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/moto/](https://secure.payonlinesystem.com/payment/transaction/moto/) \
-_Описание: _авторизует карту и блокирует на ней указанную сумму. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/moto/](https://secure.payonlinesystem.com/payment/transaction/moto/) \
+Описание: авторизует карту и блокирует на ней указанную сумму. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
 
 <p style="text-align: right">
 <em>Параметры метода Moto</em></p>
@@ -1564,19 +1564,19 @@ Id={Id}&Operation=Auth&Result={Result}&Code={Code}&Status={Status}&binCountry={C
 
 ## **Метод 3DS**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/auth/3ds/](https://secure.payonlinesystem.com/payment/transaction/auth/3ds/)  \
-_Описание: _авторизует карту и блокирует на ней указанную сумму после прохождения плательщиком 3DS-авторизации. Используется для авторизации платежа по карте, подписанной на 3-D Secure. Следует использовать, если метод <a href="#/?id=Метод-auth">Auth</a> вернул ошибку 6001 и передал параметры **PaReq**, **ASCUrl** и **PD**.
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/auth/3ds/](https://secure.payonlinesystem.com/payment/transaction/auth/3ds/)  \
+Описание: авторизует карту и блокирует на ней указанную сумму после прохождения плательщиком 3DS-авторизации. Используется для авторизации платежа по карте, подписанной на 3-D Secure. Следует использовать, если метод <a href="#/?id=Метод-auth">Auth</a> вернул ошибку 6001 и передал параметры **PaReq**, **ASCUrl** и **PD**.
 
 
     <p style="text-align: right">
 <strong><em>Что такое 3-D Secure </em></strong></p>
 
 
-_Предложенный мировой платежной системой VISA и принятый за стандарт другими платежными системами, 3 D-Secure является XML-протоколом, который используется для двухфакторной аутентификации пользователя в качестве дополнительного уровня безопасности для онлайн-кредитных и дебетовых карт. \
-В работе протокол 3-D Secure чаще всего выглядит так: держатель карты совершает оплату на сайте интернет-магазина, вводит данные карты, после этого направляется на страницу банка-эмитента, где вводит код, полученный в СМС. После этого оплата успешно завершается._
+Предложенный мировой платежной системой VISA и принятый за стандарт другими платежными системами, 3 D-Secure является XML-протоколом, который используется для двухфакторной аутентификации пользователя в качестве дополнительного уровня безопасности для онлайн-кредитных и дебетовых карт. \
+В работе протокол 3-D Secure чаще всего выглядит так: держатель карты совершает оплату на сайте интернет-магазина, вводит данные карты, после этого направляется на страницу банка-эмитента, где вводит код, полученный в СМС. После этого оплата успешно завершается.
 
-_Название 3-D происходит от 3 Domain (три домена), так как в проверке платежа по данному протоколу участвуют организации на трех доменах: домен эмитента (плательщик и банк-эмитент), домен эквайера (банк, обрабатывающий платеж, и интернет-магазин) и домен взаимодействия (МПС). Так выглядит упрощенная схема проверки платежа по протоколу 3-D Secure:  \
-Плательщик вводит данные карты в интернет-магазине, они достигают банка-эквайера (1), отправляются в МПС (2), откуда направляются в банк-эмитент (3). О том, какой банк эмитировал карту можно узнать по первым шести цифрам номера карты. Банк-эмитент сообщает, что карта подписана на 3-D Secure, формирует уникальный код, а также ссылку на страницу ввода кода (4). Ссылка возвращается в ТСП или IPSP (5), которые делают редирект в браузере держателя карты на эту страницу (6,7). В этот момент эмитент отправляет держателю карты по другому каналу (например, через СМС) временный пин-код, который он вводит на странице. В случае корректного ввода кода, банк-эмитент сообщает об успешном завершении проверки (8), и средства списываются с карты плательщика (9, 10)._
+Название 3-D происходит от 3 Domain (три домена), так как в проверке платежа по данному протоколу участвуют организации на трех доменах: домен эмитента (плательщик и банк-эмитент), домен эквайера (банк, обрабатывающий платеж, и интернет-магазин) и домен взаимодействия (МПС). Так выглядит упрощенная схема проверки платежа по протоколу 3-D Secure:  \
+Плательщик вводит данные карты в интернет-магазине, они достигают банка-эквайера (1), отправляются в МПС (2), откуда направляются в банк-эмитент (3). О том, какой банк эмитировал карту можно узнать по первым шести цифрам номера карты. Банк-эмитент сообщает, что карта подписана на 3-D Secure, формирует уникальный код, а также ссылку на страницу ввода кода (4). Ссылка возвращается в ТСП или IPSP (5), которые делают редирект в браузере держателя карты на эту страницу (6,7). В этот момент эмитент отправляет держателю карты по другому каналу (например, через СМС) временный пин-код, который он вводит на странице. В случае корректного ввода кода, банк-эмитент сообщает об успешном завершении проверки (8), и средства списываются с карты плательщика (9, 10).
 
 Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8
 
@@ -1771,7 +1771,7 @@ MerchantId={MerchantId}&TransactionId={TransactionId}&PARes={PARes}&PD={PD}&Priv
 ```
 
 
-{PrivateSecurityKey}_ —_ секретный ключ ТСП.
+{PrivateSecurityKey} — секретный ключ ТСП.
 
 Вместо выражений в фигурных скобках подставляются значения параметров. Значение параметров MerchantId и PrivateSecurityKey ТСП получает при активации.
 
@@ -1780,9 +1780,9 @@ MerchantId={MerchantId}&TransactionId={TransactionId}&PARes={PARes}&PD={PD}&Priv
 
 ## **Метод Complete**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/complete/](https://secure.payonlinesystem.com/payment/transaction/complete/)
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/complete/](https://secure.payonlinesystem.com/payment/transaction/complete/)
 
-_Описание: _подтверждает предварительно авторизованные транзакции в статусе [PreAuthorized](#Статусы-транзакций). Передача параметров выполняется методом GET или POST.
+Описание: подтверждает предварительно авторизованные транзакции в статусе [PreAuthorized](#Статусы-транзакций). Передача параметров выполняется методом GET или POST.
 
 <p style="text-align: right">
 <em>Параметры метода Complete</em></p>
@@ -2009,9 +2009,9 @@ TransactionId={TransactionId}&Operation=Complete&Amount={Amount}&Result={Result}
 
 ## **Метод Rebill**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/rebill/](https://secure.payonlinesystem.com/payment/transaction/rebill/)
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/rebill/](https://secure.payonlinesystem.com/payment/transaction/rebill/)
 
-_Описание:_ создает новую транзакцию с типом [Purchase](#Статусы-транзакций) или [PreAuth](#Статусы-транзакций), в зависимости от настроек ТСП.  \
+Описание: создает новую транзакцию с типом [Purchase](#Статусы-транзакций) или [PreAuth](#Статусы-транзакций), в зависимости от настроек ТСП.  \
 При создании транзакции используется та же платежная информация, которая была указана в одном из предыдущих вызовов метода <a href="#/?id=Метод-auth">Auth</a> или <a href="#/?id=Метод-applepay">ApplePay</a>.  \
 Передача параметров выполняется методом GET или POST.
 
@@ -2329,9 +2329,9 @@ Id={Id}&Operation=Rebill&Result={Result}&Status={Status}&Code={Code}&ErrorCode={
 
 ## **Метод Refill**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/refill/](https://secure.payonlinesystem.com/payment/transaction/refill/)
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/refill/](https://secure.payonlinesystem.com/payment/transaction/refill/)
 
-_Описание: _создает новую транзакцию с типом <a href="#/?id=Метод-refill">Refill</a>. При создании транзакции используется та же платежная информация, которая была указана в одном из предыдущих вызовов <a href="#/?id=Метод-auth">Auth</a>. \
+Описание: создает новую транзакцию с типом <a href="#/?id=Метод-refill">Refill</a>. При создании транзакции используется та же платежная информация, которая была указана в одном из предыдущих вызовов <a href="#/?id=Метод-auth">Auth</a>. \
 Передача параметров выполняется методом GET или POST.
 
 <p style="text-align: right">
@@ -2598,9 +2598,9 @@ Id={Id}&Operation=Refill&Result={Result}&Status={Status}&Code={Code}&ErrorCode={
 
 ## **Метод Refill_OCT**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/refill_oct/](https://secure.payonlinesystem.com/payment/transaction/refill_oct/)
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/refill_oct/](https://secure.payonlinesystem.com/payment/transaction/refill_oct/)
 
-_Описание: _создает новую транзакцию с типом <a href="#/?id=Метод-refill">Refill</a>. При создании транзакции используется та же платежная информация, которая была указана в одном из предыдущих вызовов <a href="#/?id=Метод-auth">Auth</a>. \
+Описание: создает новую транзакцию с типом <a href="#/?id=Метод-refill">Refill</a>. При создании транзакции используется та же платежная информация, которая была указана в одном из предыдущих вызовов <a href="#/?id=Метод-auth">Auth</a>. \
 Передача параметров выполняется методом GET или POST.
 
 <p style="text-align: right">
@@ -2895,9 +2895,9 @@ Id={Id}&Operation=Refill_OCT&Result={Result}&Status={Status}&Code={Code}&ErrorCo
 
 ## **Метод Void**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/void/](https://secure.payonlinesystem.com/payment/transaction/void/)
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/void/](https://secure.payonlinesystem.com/payment/transaction/void/)
 
-_Описание: _отменяет выполненные транзакции в статусе [Pending](#Статусы-транзакций) или [PreAuthorized](#Статусы-транзакций). Передача параметров выполняется методом GET или POST.
+Описание: отменяет выполненные транзакции в статусе [Pending](#Статусы-транзакций) или [PreAuthorized](#Статусы-транзакций). Передача параметров выполняется методом GET или POST.
 
 <p style="text-align: right">
 <em>Параметры метода Void</em></p>
@@ -3071,9 +3071,9 @@ TransactionId={TransactionId}&Operation=Void&Result={Result}&Message={Message}
 
 ## **Метод Refund**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/refund/](https://secure.payonlinesystem.com/payment/transaction/refund/)
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/refund/](https://secure.payonlinesystem.com/payment/transaction/refund/)
 
-_Описание: _создает новую транзакцию с типом [Refund](#Типы-транзакций) для возврата средств по транзакции в статусе [Settled](#Статусы-транзакций). \
+Описание: создает новую транзакцию с типом [Refund](#Типы-транзакций) для возврата средств по транзакции в статусе [Settled](#Статусы-транзакций). \
 Передача параметров выполняется методом GET или POST.
 
 <p style="text-align: right">
@@ -3270,8 +3270,8 @@ TransactionId={TransactionId}&Operation=Refund&Amount={Amount}&Result={Result}&M
 
 ## **Метод Check**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/check /](https://secure.payonlinesystem.com/payment/transaction/check%20/) \
-_Описание: _Метод проверяет информацию о карте плательщика и платеже в системе AntiFraud PayOnline. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/check /](https://secure.payonlinesystem.com/payment/transaction/check%20/) \
+Описание: Метод проверяет информацию о карте плательщика и платеже в системе AntiFraud PayOnline. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
 
 <p style="text-align: right">
 <em>Параметры метода Check</em></p>
@@ -3618,9 +3618,9 @@ Id={Id}&Operation=Check&Result={Result}
 
 ## **Метод Search**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/search/](https://secure.payonlinesystem.com/payment/search/)
+Адрес: [https://secure.payonlinesystem.com/payment/search/](https://secure.payonlinesystem.com/payment/search/)
 
-_Описание: _возвращает информацию только об успешно проведенных платежах. Критерием поиска может быть OrderId или TransactionId. Передача параметров выполняется методом GET или POST.
+Описание: возвращает информацию только об успешно проведенных платежах. Критерием поиска может быть OrderId или TransactionId. Передача параметров выполняется методом GET или POST.
 
 <p style="text-align: right">
 <em>Параметры метода Search</em></p>
@@ -3842,9 +3842,9 @@ TransactionId={TransactionId}&Amount={Amount}&Currency={Currency}&Order={OrderId
 
 ## **Метод List**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/list/](https://secure.payonlinesystem.com/payment/transaction/list/)
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/list/](https://secure.payonlinesystem.com/payment/transaction/list/)
 
-_Описание: _возвращает список всех транзакций за указанный период времени в часовом поясе UTC+0. Если параметры DateFrom и DateTill указаны в формате yyyy-MM-dd, то возвращаются транзакции с даты начала 00<span>:</span>00:00 до даты окончания 23<span>:</span>59:59. Передача параметров выполняется методом GET или POST.
+Описание: возвращает список всех транзакций за указанный период времени в часовом поясе UTC+0. Если параметры DateFrom и DateTill указаны в формате yyyy-MM-dd, то возвращаются транзакции с даты начала 00<span>:</span>00:00 до даты окончания 23<span>:</span>59:59. Передача параметров выполняется методом GET или POST.
 
 <p style="text-align: right">
 <em>Параметры метода List</em></p>
@@ -4273,9 +4273,9 @@ Real — «боевой» шлюз.
 
 ## **Метод Card2Card**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/card2card/](https://secure.payonlinesystem.com/payment/transaction/card2card/)
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/card2card/](https://secure.payonlinesystem.com/payment/transaction/card2card/)
 
-_Описание: _создает новый перевод с карты на карту. При создании перевода используется та же платежная информация, которая была указана в одном из предыдущих вызовов <a href="#/?id=Метод-auth">Auth</a>.  \
+Описание: создает новый перевод с карты на карту. При создании перевода используется та же платежная информация, которая была указана в одном из предыдущих вызовов <a href="#/?id=Метод-auth">Auth</a>.  \
 Передача параметров выполняется методом GET или POST.
 
 <p style="text-align: right">
@@ -4576,9 +4576,9 @@ TransactionId={TransactionId}&Operation=Refill&Result={Result}&Status={Status}&C
 
 ## **Метод Card2Card 3DS**
 
-_Адрес: _[https://secure.payonlinesystem.com/payment/transaction/card2card/3ds/](https://secure.payonlinesystem.com/payment/transaction/card2card/3ds/)
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/card2card/3ds/](https://secure.payonlinesystem.com/payment/transaction/card2card/3ds/)
 
-_Описание: _завершает перевод с карты на карту после прохождения плательщиком 3DS-авторизации. Используется для завершения перевода по карте, подписанной на 3-D Secure. Следует использовать данный метод, если <a href="#/?id=Метод-card2card">Card2Card</a> вернул ошибку 6001 и передал параметры **PaReq**, **ASCUrl** и *.*PD**.
+Описание: завершает перевод с карты на карту после прохождения плательщиком 3DS-авторизации. Используется для завершения перевода по карте, подписанной на 3-D Secure. Следует использовать данный метод, если <a href="#/?id=Метод-card2card">Card2Card</a> вернул ошибку 6001 и передал параметры **PaReq**, **ASCUrl** и *.*PD**.
 
 Процесс проведения перевода аналогичен процессу проведения платежа по карте, подписанной на 3D-Secure (см. описание <a href="#/?id=Метод-3ds">Метод 3DS</a>.
 
