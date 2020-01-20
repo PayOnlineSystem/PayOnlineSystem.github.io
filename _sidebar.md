@@ -1,3 +1,4 @@
 <!-- docs/_sidebar.md -->
 
-* [Home](/)
+* [Общая информация](/)
+* [PayOnline Api](api)
