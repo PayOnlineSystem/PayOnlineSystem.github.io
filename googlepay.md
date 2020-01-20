@@ -21,7 +21,7 @@ GooglePay это быстрый и безопасный метод оплаты 
 При инициализации Google Pay API вы должны указать
 
 * gateway: 'payonline'
-* gatewayMerchantId: ваш MID в системе PayOnline
+* gatewayMerchantId: '123' - ваш MID в системе PayOnline
 
 Пример кода на javascript
 ```javascript
