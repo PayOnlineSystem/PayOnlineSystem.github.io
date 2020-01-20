@@ -10,9 +10,9 @@ GooglePay is a fast and secure one-click payment method. Using GooglePay, the bu
 
 # To start using Google Pay API you need
 
-**1. Add G-Pay Button**
+## 1. Add G-Pay Button
 
-**Web.**
+### Web.
 
 In short: you should get a token and pass it to your backend system. Then your backend calls the PayOnline API.
 
@@ -142,7 +142,7 @@ When implementing Google Pay integration please use:
 
 * [ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
 
-**Adnroid.**
+### Adnroid.
 
 Пример кода…
 
@@ -160,7 +160,7 @@ When implementing Google Pay integration please use:
 
  
 
-**2. Get Google approve.**
+## 2. Get Google approve.
 
 Please complete [application](https://services.google.com/fb/forms/googlepayAPIenable). After that, a Google point of contact will reach out you and instruct on further steps. In this step, you will provide your Google point of contact with a link to your integration or apk file to check the integration.
 
