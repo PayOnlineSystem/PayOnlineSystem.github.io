@@ -120,7 +120,6 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 
     function processPayment(paymentData) {
         var token = JSON.stringify(paymentData);
-        console.log(token);
         //pass token to your backend ...
         $.post("/GooglePay", token).then(function (result) {
         if (result.Success) {
@@ -163,7 +162,7 @@ When implementing Google Pay integration please use:
 
 **2)Get Google approve.**
 
-Please complete [application](https://services.google.com/fb/forms/googlepayAPIenable). After that, a Google point of contact reach out you and instruct you on further steps. In this step, you will provide your Google point of contact with a link to your integration or apk file to check the integration.
+Please complete [application](https://services.google.com/fb/forms/googlepayAPIenable). After that, a Google point of contact will reach out you and instruct on further steps. In this step, you will provide your Google point of contact with a link to your integration or apk file to check the integration.
 
  
 
