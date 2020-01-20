@@ -162,9 +162,9 @@ Also you can see:
 
 When implementing Google Pay integration please use:
 
-* Google integration guide:  [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview), [Google Pay Android integration checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist).
+* [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview), [Google Pay Android integration checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist).
 
-* Google’s branding guidelines when adding a button:  [Google Pay Android brand guidelines](https://developers.google.com/pay/api/android/guides/brand-guidelines).
+* [Google Pay Android brand guidelines](https://developers.google.com/pay/api/android/guides/brand-guidelines).
 
  
 
