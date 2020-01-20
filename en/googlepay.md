@@ -159,12 +159,12 @@ Google’s branding guidelines when adding a button:  [Google Pay Android brand 
 
 **2) Get Google approve.**
 
-Для этого надо заполнить[ форму](https://services.google.com/fb/forms/googlepayAPIenable). После этого с вами свяжется представитель Google и проинструктирует о дальнейших шагах. На этом шаге вы отправите в Google ссылку на вашу интеграцию или apk файл для оценки интеграции.
+Please complete [application](https://services.google.com/fb/forms/googlepayAPIenable). After that, a Google point of contact reach out you and instruct you on further steps. In this step, you will provide your Google point of contact with a link to your integration or apk file to check the integration.
 
  
 
-**Обязательные условия при успользовании Google Pay.**
+**Prerequisites for using Google Pay API.**
 
-1)Условия использования[ GOOGLE PAY API TERMS OF SERVICE](https://payments.developers.google.com/terms/sellertos)
+1) [ GOOGLE PAY API TERMS OF SERVICE](https://payments.developers.google.com/terms/sellertos)
 
-2)Список товаров и услуг, запрещённых к оплате через Google Pay:[ GOOGLE PAY APIs ACCEPTABLE USE POLICY](https://payments.developers.google.com/terms/aup)
+2) [ GOOGLE PAY APIs ACCEPTABLE USE POLICY](https://payments.developers.google.com/terms/aup)
