@@ -8,11 +8,11 @@ GooglePay is a fast and secure one-click payment method. Using GooglePay, the bu
 
  
 
-**To start using GooglePay you need**
+**To start using Google Pay API you need**
 
-**1) Add G-Pay Button**
+**1)Add G-Pay Button**
 
-**For web page.**
+**Web.**
 
 In short: you should get a token and pass it to your backend system. Then your backend calls the PayOnline API.
 
@@ -25,7 +25,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
         type: 'PAYMENT_GATEWAY',
         parameters: {
           'gateway': 'payonline',
-          'gatewayMerchantId': '123'//ваш MID в системе PayOnline
+          'gatewayMerchantId': '123'//your MID PayOnline
         }
       };
     const baseCardPaymentMethod = {
@@ -69,7 +69,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
         return paymentsClient;
     }
     
-    //Обработчик загрузки Google Pay
+    //Google Pay loading callback
     function onGooglePayLoaded() {
         const paymentsClient = getGooglePaymentsClient();
         paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
@@ -94,7 +94,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
         $("#gpay-container")[0].appendChild(button);
     }
 
-    //получение цены
+    //getting price
     function getGoogleTransactionInfo() {
         return {
             currencyCode: 'RUB',
@@ -103,7 +103,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
         };
     }
 
-    //обработчик нажатия кнопки G-Pay
+    //Googe Pay button handler
     function onGooglePaymentButtonClicked() {
         const paymentDataRequest = getGooglePaymentDataRequest();
         paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
@@ -121,15 +121,15 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
     function processPayment(paymentData) {
         var token = JSON.stringify(paymentData);
         console.log(token);
-        //отправка токена на бэкенд ...
+        //pass token to your backend ...
         $.post("/GooglePay", token).then(function (result) {
         if (result.Success) {
-            //оплата успешно завершена
+            //payment successfully completed
         } else {
             if (result.AwaitingThreeDS) { 
-                //требуется 3ds аутентификация
+                //3ds authentication required
             } else {
-                //оплата отклонена
+                //payment declined
             }
         }
     });
@@ -143,7 +143,7 @@ When implementing Google Pay integration please use:
 
 2) [ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
 
-**Для андроид приложения.**
+**Adnroid.**
 
 Пример кода…
 
@@ -157,7 +157,7 @@ Google’s branding guidelines when adding a button:  [Google Pay Android brand 
 
  
 
-**2) Get Google approve.**
+**2)Get Google approve.**
 
 Please complete [application](https://services.google.com/fb/forms/googlepayAPIenable). After that, a Google point of contact reach out you and instruct you on further steps. In this step, you will provide your Google point of contact with a link to your integration or apk file to check the integration.
 
