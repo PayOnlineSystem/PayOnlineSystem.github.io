@@ -2,9 +2,9 @@
 
 GooglePay is a fast and secure one-click payment method. Using GooglePay, the buyer can pay using:
 
-1) cards tied to his personal google-pay account (Tokenized card). In this case, when you click on the G-Pay button, a token is generated, which then must be transferred to the Auth method. And this completes the payment.
+1) Tokenized card. In this case, when you click on the G-Pay button, a token is generated, token then must be passed to the Auth method. And that is all.
 
-2) an unattached card. (Non-Tokenized Card). In this case, you should get the token, pass it to the Auth method, and go through the 3ds authentication procedure.
+2) Non-Tokenized card. In this case, you should generate the token, pass it to the Auth method, and go through the 3ds authentication procedure.
 
  
 
@@ -14,7 +14,7 @@ GooglePay is a fast and secure one-click payment method. Using GooglePay, the bu
 
 **For web page.**
 
-In short: you get a token and send it to your backend using javaScript. And already on the backend it calls the PayOnline API.
+In short: you should get a token and pass it to your backend system. And already on the backend it calls the PayOnline API.
 
 When using the Google Pay API to pay via PayOnline, customers will be able to use payment systems: Visa and MasterCard.
 
