@@ -18,6 +18,12 @@ GooglePay это быстрый и безопасный метод оплаты 
 
 При использовании Google Pay API для оплаты через PayOnline покупатели смогут использовать платёжные системы: Visa и MasterCard.
 
+При инициализации Google Pay API вы должны указать
+
+* gateway: 'payonline'
+* gatewayMerchantId: ваш MID в системе PayOnline
+
+Пример кода на javascript
 ```javascript
 const allowedCardNetworks = ["MASTERCARD", "VISA"];
     const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
