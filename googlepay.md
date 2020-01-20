@@ -136,11 +136,11 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
     }
 ```
 
- 
+При проведении интеграции Google Pay пожалуйста используйте: 
 
-Руководство по интеграции от google:  [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview), [Google Pay Web integration checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist).
+* Руководство по интеграции от google:  [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview), [Google Pay Web integration checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist).
 
-Правила использования бренда от Google, при добавлении кнопки:[ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
+* Правила использования бренда от Google, при добавлении кнопки:[ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
 
 ### Android.
 
