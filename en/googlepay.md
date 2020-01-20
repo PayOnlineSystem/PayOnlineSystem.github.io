@@ -10,7 +10,7 @@ GooglePay is a fast and secure one-click payment method. Using GooglePay, the bu
 
 **To start using Google Pay API you need**
 
-**1)Add G-Pay Button**
+**1. Add G-Pay Button**
 
 **Web.**
 
@@ -138,9 +138,9 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
  
 When implementing Google Pay integration please use:
 
-1) [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview), [Google Pay Web integration checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist).
+* [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview), [Google Pay Web integration checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist).
 
-2) [ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
+* [ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
 
 **Adnroid.**
 
@@ -148,19 +148,19 @@ When implementing Google Pay integration please use:
 
 Also you can see:
 
-1) [Example](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) of using the Google Pay API to pay via PayOnline
+* [Example](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) of using the Google Pay API to pay via PayOnline
 
-2) [Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
+* [Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
 
 When implementing Google Pay integration please use:
 
-1) Google integration guide:  [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview), [Google Pay Android integration checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist).
+* Google integration guide:  [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview), [Google Pay Android integration checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist).
 
-2) Google’s branding guidelines when adding a button:  [Google Pay Android brand guidelines](https://developers.google.com/pay/api/android/guides/brand-guidelines).
+* Google’s branding guidelines when adding a button:  [Google Pay Android brand guidelines](https://developers.google.com/pay/api/android/guides/brand-guidelines).
 
  
 
-**2)Get Google approve.**
+**2. Get Google approve.**
 
 Please complete [application](https://services.google.com/fb/forms/googlepayAPIenable). After that, a Google point of contact will reach out you and instruct on further steps. In this step, you will provide your Google point of contact with a link to your integration or apk file to check the integration.
 
@@ -168,6 +168,6 @@ Please complete [application](https://services.google.com/fb/forms/googlepayAPIe
 
 **Prerequisites for using Google Pay API.**
 
-1) [ GOOGLE PAY API TERMS OF SERVICE](https://payments.developers.google.com/terms/sellertos)
+* [ GOOGLE PAY API TERMS OF SERVICE](https://payments.developers.google.com/terms/sellertos)
 
-2) [ GOOGLE PAY APIs ACCEPTABLE USE POLICY](https://payments.developers.google.com/terms/aup)
+* [ GOOGLE PAY APIs ACCEPTABLE USE POLICY](https://payments.developers.google.com/terms/aup)
