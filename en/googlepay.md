@@ -137,10 +137,11 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 ```
 
  
+When implementing Google Pay integration please use:
 
-Google integration guide:  [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview), [Google Pay Web integration checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist).
+1)Google integration guide:  [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview), [Google Pay Web integration checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist).
 
-Google’s branding guidelines when adding a button:[ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
+2)Google branding guidelines: [ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
 
 **Для андроид приложения.**
 
