@@ -20,7 +20,7 @@ Using Google Pay API, the customer can pay using:
 
 ### Web.
 
-In short:
+In order to process Google Pay transaction you should:
 
 * Press Google Pay button to get token
 * Send token to your backend
@@ -161,7 +161,7 @@ When implement Google Pay integration please use:
 
 * [Google Pay Web integration checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist).
 
-### Adnroid.
+### Android.
 
 To integrate Google Pay with your Android application, you also need to add a Google Pay button
 
@@ -170,6 +170,13 @@ Please see:
 * [Example](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) of using Google Pay API from PayOnline
 
 * [Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
+
+Also you need to implement PayOnline API or use [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
+
+Logic of payment should be the same
+* Press Google Pay button to get token
+* Call <a href="#/en/api?id=googlepay-method">Google Pay</a> method of PayOnline API
+* If you got Awaiting3DS, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
 
 In order to process transactions using PayOnline you should specify next parameters:
 
@@ -186,12 +193,6 @@ val SUPPORTED_NETWORKS = listOf(
         "VISA")
 ```
 
-Also you need to implement PayOnline API or use [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
-
-Logic should be the same
-* Press Google Pay button to get token
-* Call <a href="#/en/api?id=googlepay-method">Google Pay</a> method of PayOnline API
-* If you got Awaiting3DS, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">complete</a> method
 
 When implement Google Pay integration use:
 

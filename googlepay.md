@@ -195,7 +195,7 @@ val SUPPORTED_NETWORKS = listOf(
 Логика работы та же, что и в web приложении
 * Нажать на кнопку и получить токен
 * Вызвать <a href="#/api?id=Метод-googlepay">Google Pay</a> метод
-* Если пришел код ошибки Awaiting3DS, то необходимо пройти 3DS аутенфикацию 
+* Если пришел код ошибки Awaiting3DS, то необходимо пройти 3DS аутенфикацию (<a href="#/en/api?id=complete-method">Complete</a> method)
 
 
 ## 2. Получить одобрение и зарегистрироваться в Google.
