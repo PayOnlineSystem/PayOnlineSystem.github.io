@@ -1,8 +1,8 @@
 # Description
 
-GooglePay is a fast and secure one-click payment method. Using GooglePay, the buyer can pay using:
+Google Pay is a fast and secured one-click payment method. Using Google Pay, the buyer can pay using:
 
-1) Tokenized card. In this case, when you click on the G-Pay button, a token is generated, token then must be passed to the Auth method. And that is all.
+1) Tokenized card. In this case, when you click on the G-Pay button, a token is generated, then token must be passed to the Auth method. And that is all.
 
 2) Non-Tokenized card. In this case, you should generate the token, pass it to the Auth method, and go through the 3ds authentication procedure.
 
