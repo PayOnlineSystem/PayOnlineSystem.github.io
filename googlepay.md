@@ -96,11 +96,10 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 
     //получение цены
     function getGoogleTransactionInfo() {
-        var price = $("#googleAmount").val();
         return {
             currencyCode: 'RUB',
             totalPriceStatus: 'FINAL',
-            totalPrice: price
+            totalPrice: '1.00'
         };
     }
 
@@ -123,6 +122,17 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
         var token = JSON.stringify(paymentData);
         console.log(token);
         //отправка токена на бэкенд ...
+        $.post("/GooglePay", token).then(function (result) {
+        if (result.Success) {
+            //оплата успешно завершена
+        } else {
+            if (result.AwaitingThreeDS) { 
+                //требуется 3ds аутентификация
+            } else {
+                //оплата отклонена
+            }
+        }
+    });
     }
 ```
 
