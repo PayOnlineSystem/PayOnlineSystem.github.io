@@ -1,6 +1,11 @@
+<div>
+<img height="20px" style="margin-left: 4px;" src="https://img.shields.io/badge/v1.0.0-2020.01.20-42b983.svg"/>
+
+</div>
+<br/>
+
 # Общая информация  PayOnline 
 
-<img src="https://secure.payonlinesystem.com/login/rel/img/payonline-logo.png"/>
+Система PayOnline - совокупность аппаратно-программных решений, предназначенных для осуществления деятельности платежного сервис-провайдера. 
 
-
-Подключение электронной торговой площадки к системе приема электронных платежей PayOnline
+Процессинговый центр PayOnline сертифицирован и является официальным сервис-провайдером в Visa и MasterCard.
