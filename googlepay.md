@@ -64,7 +64,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 
     function getGooglePaymentsClient() {
         if (paymentsClient === null) {
-            paymentsClient = new google.payments.api.PaymentsClient({ environment: $('[name="environment"]').val() });
+            paymentsClient = new google.payments.api.PaymentsClient({ environment: 'PRODUCTION' });
         }
         return paymentsClient;
     }
