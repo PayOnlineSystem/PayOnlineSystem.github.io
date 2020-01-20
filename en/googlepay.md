@@ -147,9 +147,9 @@ When implementing Google Pay integration please use:
 
 Пример кода…
 
-Пример использования Google Pay API для оплаты через PayOnline (ссылка на гит-хаб)
+[Example](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) of using the Google Pay API to pay via PayOnline
 
-[Пример](https://github.com/google-pay/android-quickstart) использования Google Pay API от Google.
+[Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
 
 Google integration guide:  [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview), [Google Pay Android integration checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist).
 
