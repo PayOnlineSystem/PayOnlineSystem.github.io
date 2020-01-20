@@ -146,7 +146,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 
 Пример кода…
 
-Также смотрите:
+Также смотрите в качестве примера:
 
 * [Пример](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) использования Google Pay API для оплаты через PayOnline (ссылка на гит-хаб)
 
