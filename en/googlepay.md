@@ -147,13 +147,17 @@ When implementing Google Pay integration please use:
 
 Пример кода…
 
-[Example](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) of using the Google Pay API to pay via PayOnline
+Also you can see:
 
-[Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
+1) [Example](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) of using the Google Pay API to pay via PayOnline
 
-Google integration guide:  [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview), [Google Pay Android integration checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist).
+2) [Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
 
-Google’s branding guidelines when adding a button:  [Google Pay Android brand guidelines](https://developers.google.com/pay/api/android/guides/brand-guidelines).
+When implementing Google Pay integration please use:
+
+1) Google integration guide:  [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview), [Google Pay Android integration checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist).
+
+2) Google’s branding guidelines when adding a button:  [Google Pay Android brand guidelines](https://developers.google.com/pay/api/android/guides/brand-guidelines).
 
  
 
