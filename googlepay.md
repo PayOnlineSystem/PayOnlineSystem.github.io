@@ -1,4 +1,4 @@
-**Описание**
+# Описание
 
 GooglePay это быстрый и безопасный метод оплаты в «один клик». Используя GooglePay покупатель может оплачивать с помощью:
 
@@ -8,11 +8,11 @@ GooglePay это быстрый и безопасный метод оплаты 
 
  
 
-**Чтобы начать использовать GooglePay надо**
+# Чтобы начать использовать GooglePay надо
 
-**1)Добавить кнопку G-Pay**
+## 1. Добавить кнопку G-Pay
 
-**Для веб страницы.**
+### Веб.
 
 Вкратце: вы получаете токен и отправляете его себе на бэкенд используя javaScript. И уже на бэкенде вызывает API PayOnline.
 
@@ -142,28 +142,32 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 
 Правила использования бренда от Google, при добавлении кнопки:[ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
 
-**Для андроид приложения.**
+### Android.
 
 Пример кода…
 
-Пример использования Google Pay API для оплаты через PayOnline (ссылка на гит-хаб)
+Также смотрите:
 
-[Пример](https://github.com/google-pay/android-quickstart) использования Google Pay API от Google.
+* Пример использования Google Pay API для оплаты через PayOnline (ссылка на гит-хаб)
 
-Руководство по интеграции от google:  [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview), [Google Pay Android integration checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist).
+* [Пример](https://github.com/google-pay/android-quickstart) использования Google Pay API от Google.
 
-Правила использования бренда от Google, при добавлении кнопки:  [Google Pay Android brand guidelines](https://developers.google.com/pay/api/android/guides/brand-guidelines).
+Когда будете имплементировать интеграцию, пожалуйста используйте:
+
+* Руководство по интеграции от google:  [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview), [Google Pay Android integration checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist).
+
+* Правила использования бренда от Google, при добавлении кнопки:  [Google Pay Android brand guidelines](https://developers.google.com/pay/api/android/guides/brand-guidelines).
 
  
 
-**2)Получить одобрение и зарегистрироваться в Google.**
+## 2. Получить одобрение и зарегистрироваться в Google.
 
 Для этого надо заполнить[ форму](https://services.google.com/fb/forms/googlepayAPIenable). После этого с вами свяжется представитель Google и проинструктирует о дальнейших шагах. На этом шаге вы отправите в Google ссылку на вашу интеграцию или apk файл для оценки интеграции.
 
  
 
-**Обязательные условия при успользовании Google Pay.**
+# Обязательные условия при успользовании Google Pay.
 
-1)Условия использования[ GOOGLE PAY API TERMS OF SERVICE](https://payments.developers.google.com/terms/sellertos)
+* Условия использования[ GOOGLE PAY API TERMS OF SERVICE](https://payments.developers.google.com/terms/sellertos)
 
-2)Список товаров и услуг, запрещённых к оплате через Google Pay:[ GOOGLE PAY APIs ACCEPTABLE USE POLICY](https://payments.developers.google.com/terms/aup)
+* Список товаров и услуг, запрещённых к оплате через Google Pay:[ GOOGLE PAY APIs ACCEPTABLE USE POLICY](https://payments.developers.google.com/terms/aup)
