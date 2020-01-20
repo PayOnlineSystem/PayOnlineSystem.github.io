@@ -10,11 +10,11 @@ Google Pay is a fast and secured one-click payment method. Using Google Pay, the
 
 # To start using Google Pay API you need
 
-## 1. Add G-Pay Button
+## 1. Add Google Pay Button
 
 ### Web.
 
-In short: you should get a token and pass it to your backend system. Then your backend calls the PayOnline API.
+In short: you should get a token and pass it to your backend system. Then your backend will calls the PayOnline API.
 
 *When using the Google Pay API to pay via PayOnline, customers will be able to use payment systems: Visa and MasterCard.*
 
@@ -69,7 +69,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
         return paymentsClient;
     }
     
-    //Google Pay loading callback
+    //Google Pay loaded callback
     function onGooglePayLoaded() {
         const paymentsClient = getGooglePaymentsClient();
         paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
