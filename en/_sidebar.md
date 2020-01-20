@@ -1,4 +1,5 @@
 <!-- docs/_sidebar.md -->
 
-* [Common](/en/)
-* [PayOnline Api](/en/api)
+* [About us](/en/)
+* [API](/en/api)
+* [Google Pay](/en/googlepay)

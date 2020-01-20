@@ -1046,6 +1046,476 @@ In case of XML:
 </transaction>
 ```
 
+## **GooglePay method**
+
+Endpoint url:_ [https://secure.payonlinesystem.com/payment/transaction/googlepay/](https://secure.payonlinesystem.com/payment/transaction/googlepay/) \
+Description:_ Authorizes a payment transaction. \
+Http-method: POST \
+Encoding: UTF-8
+
+<p style="text-align: right">
+<em>ApplePay request parameters</em></p>
+
+
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+   <td><strong>Data type</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>MerchantId
+   </td>
+   <td>Identification code, assigned by PayOnline. Mandatory
+   </td>
+   <td>Integer number
+   </td>
+  </tr>
+  <tr>
+   <td>OrderId
+   </td>
+   <td>Identification code of the order in the merchant system. Mandatory
+   </td>
+   <td>String, max length—50 chars
+   </td>
+  </tr>
+  <tr>
+   <td>Amount
+   </td>
+   <td>Total amount of the order. Mandatory
+   </td>
+   <td>Fixed-point number (Decimal), two digits after point, e.g. 1500.99
+   </td>
+  </tr>
+  <tr>
+   <td>Currency
+   </td>
+   <td>Currency of the order. Mandatory
+   </td>
+   <td>String, 3 chars
+   </td>
+  </tr>
+  <tr>
+   <td>SecurityKey
+   </td>
+   <td>Public security key, confirming integrity of request parameters. Mandatory
+   </td>
+   <td>String, 32 chars lowercase
+   </td>
+  </tr>
+  <tr>
+   <td>Ip
+   </td>
+   <td>Customer’s IP address. Mandatory.
+   </td>
+   <td>String in format xxx.xxx.xxx.xxx, for example 66.11.130.105
+   </td>
+  </tr>
+  <tr>
+   <td>Email
+   </td>
+   <td>Email address of the payer.  \
+Optional
+   </td>
+   <td>String, 50 characters max
+   </td>
+  </tr>
+  <tr>
+   <td>Country
+   </td>
+   <td>Customer’s residence country. Mandatory, but specified individually.
+   </td>
+   <td><a href="http://www.iso.org/iso/home/standards/country_codes.htm">ISO-3166</a> country code for example RU
+   </td>
+  </tr>
+  <tr>
+   <td>PaymentToken
+   </td>
+   <td>Card data in encrypted form received from <a href="https://pay.google.com/intl/ru_ru/about/">GooglePay</a>. Mandatory
+   </td>
+   <td>JSON
+   </td>
+  </tr>
+  <tr>
+   <td>City
+   </td>
+   <td>Customer’s city. Mandatory, but specified individually.
+   </td>
+   <td>String, 50 characters max
+   </td>
+  </tr>
+  <tr>
+   <td>Address
+   </td>
+   <td>Customer’s address. Mandatory, but specified individually.
+   </td>
+   <td>String, 150 characters max
+   </td>
+  </tr>
+  <tr>
+   <td>Zip
+   </td>
+   <td>Customer’s ZIP code. Mandatory, but specified individually.
+   </td>
+   <td>String, 10 characters max
+   </td>
+  </tr>
+  <tr>
+   <td>State
+   </td>
+   <td>State for US or Canada citizens. Mandatory, but specified individually.
+   </td>
+   <td>String, 2 letters, for example FL.
+   </td>
+  </tr>
+  <tr>
+   <td>Phone
+   </td>
+   <td>Customer's phone number. Mandatory, but specified individually.
+   </td>
+   <td>String, 50 characters max
+   </td>
+  </tr>
+  <tr>
+   <td>Issuer
+   </td>
+   <td>Issuer name. Mandatory, but specified individually.
+   </td>
+   <td>String, 100 characters max
+   </td>
+  </tr>
+  <tr>
+   <td>ContentType
+   </td>
+   <td>Result format—text or xml. Default is text. Optional
+   </td>
+   <td>String
+   </td>
+  </tr>
+  <tr>
+   <td>OrderDescription
+   </td>
+   <td>Order description displayed for the payer on the payment form and e-mail notifications. Optional
+   </td>
+   <td>String UTF-8 encoded (url encode). 100 characters max. Symbols allowed: letters, numbers, punctuation marks
+   </td>
+  </tr>
+  <tr>
+   <td>Any number of custom parameters
+   </td>
+   <td>Any custom parameters. Custom parameters are returned in callback as they are. Optional
+   </td>
+   <td>Any format
+   </td>
+  </tr>
+</table>
+
+
+Possible options:
+
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Options</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Currency
+   </td>
+   <td>Currency code according to <a href="http://www.iso.org/iso/currency_codes">ISO 4217</a>
+   </td>
+  </tr>
+  <tr>
+   <td>ContentType
+   </td>
+   <td>text—result in text format. \
+xml—result in XML format.
+   </td>
+  </tr>
+</table>
+
+
+SecurityKey should be formed according to the algorithm described in “[SecurityKey parameter](#SecurityKey-parameter)”
+
+It is possible to use either private key PrivateSecurityKey or key PaymentKey to compose  SecurityKey in ApplePay method request. 
+
+In case PrivateSecurityKey is used, the argument to the function, which calculates the hash, is described as:
+
+In case OrderDescription is indicated 
+
+
+```
+MerchantId={MerchantId}&OrderId={OrderId}&Amount={Amount}&Currency={Currency}&OrderDescription={OrderDescription}&PaymentToken={PaymentToken}&PrivateSecurityKey={PrivateSecurityKey}
+```
+
+
+In case OrderDescription is not indicated 
+
+
+```
+MerchantId={MerchantId}&OrderId={OrderId}&Amount={Amount}&Currency={Currency}&PaymentToken={PaymentToken}&PrivateSecurityKey={PrivateSecurityKey}
+```
+
+
+In case PaymentKey is used, the argument to the function, which calculates the hash, is described as:
+
+In case OrderDescription is indicated 
+
+
+```
+MerchantId={MerchantId}&OrderId={OrderId}&Amount={Amount}&Currency={Currency}&OrderDescription={OrderDescription}&PaymentToken={PaymentToken}&PaymentKey={PaymentKey}
+```
+
+
+In case OrderDescription is not indicated 
+
+
+```
+MerchantId={MerchantId}&OrderId={OrderId}&Amount={Amount}&Currency={Currency}&PaymentToken={PaymentToken}&PaymentKey={PaymentKey}
+```
+
+
+**Response parameters**
+
+In case of an error, the following parameters are returned:
+
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+   <td><strong>Data type</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Code
+   </td>
+   <td>Error code. Described in section “Error codes”. Mandatory
+   </td>
+   <td>Integer number
+   </td>
+  </tr>
+  <tr>
+   <td>Message
+   </td>
+   <td>Error description. Mandatory
+   </td>
+   <td>String
+   </td>
+  </tr>
+</table>
+
+
+In case input parameter ContentType = text, the result will look like:
+
+
+```
+Code={Code}&Message={Message}
+```
+
+
+In case of XML:
+
+
+```
+<error>
+	<code>{Code}</code>
+	<message>{Message}</message>
+</error>
+```
+
+
+In case of success, the following parameters are returned:
+
+
+<table>
+  <tr>
+   <td><strong>Name</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+   <td><strong>Data type</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Id
+   </td>
+   <td>Identification code of the transaction. Mandatory
+   </td>
+   <td>Integer number (Long)
+   </td>
+  </tr>
+  <tr>
+   <td>Operation
+   </td>
+   <td>Operation name, always Auth. Mandatory
+   </td>
+   <td>String
+   </td>
+  </tr>
+  <tr>
+   <td>Result
+   </td>
+   <td>Operation result. Mandatory
+   </td>
+   <td>String
+   </td>
+  </tr>
+  <tr>
+   <td>Code
+   </td>
+   <td>Result code. If Code = 6001, payer must pass 3DS authorization on Issuing bank webpage. After 3DS authorization  3DS method needs to be called, which  is described in “[3DS](#3DS-method)” chapter. Mandatory
+   </td>
+   <td>Numeric.  \
+See section “<a href="#/en/api?id=response-codes">Response codes</a>” for possible value
+   </td>
+  </tr>
+  <tr>
+   <td>Status
+   </td>
+   <td>Transaction status. Mandatory
+   </td>
+   <td>String
+   </td>
+  </tr>
+  <tr>
+   <td>ErrorCode
+   </td>
+   <td>Error code in case of error. \
+Only if payment was not done.
+   </td>
+   <td>Numeric
+   </td>
+  </tr>
+  <tr>
+   <td>RebillAnchor
+   </td>
+   <td>Token for repeated payments for this card. Only if the payment was completed and merchant is signed for the recurring payments service. Optional
+   </td>
+   <td>String. Max length—100 chars
+   </td>
+  </tr>
+  <tr>
+   <td>IpCountry
+   </td>
+   <td>Country code determined by customer’s IP-Address. Optional
+   </td>
+   <td>2 symbols, country <a href="http://www.iso.org/iso/home/standards/country_codes.htm">ISO-3166</a> code, i.e. RU
+   </td>
+  </tr>
+  <tr>
+   <td>BinCountry
+   </td>
+   <td>Country code, determined according to BIN of the card issuer.Optional
+   </td>
+   <td>2 symbols, country <a href="http://www.iso.org/iso/home/standards/country_codes.htm">ISO-3166</a> code, i.e. RU
+   </td>
+  </tr>
+  <tr>
+   <td>SpecialConditions
+   </td>
+   <td>Special conditions. Optional
+   </td>
+   <td>String, one or several values, separated by commas: ValidationRequired—payer verification recomended.
+   </td>
+  </tr>
+  <tr>
+   <td>PAReq
+   </td>
+   <td>PAReq. Optional.
+   </td>
+   <td>PAReq sent if <a href="#/?id=Метод-3ds">3DS authentication</a> required 
+   </td>
+  </tr>
+
+  <tr>
+   <td>AcsUrl
+   </td>
+   <td>AcsUrl. Optional.
+   </td>
+   <td>Url you need to go in case of <a href="#/?id=Метод-3ds">3DS authentication</a>
+   </td>
+  </tr>
+
+  <tr>
+   <td>PD
+   </td>
+   <td>PD. Optional.
+   </td>
+   <td>PD sent if <a href="#/?id=Метод-3ds">3DS authentication</a> required 
+   </td>
+  </tr>
+</table>
+
+
+Possible options:
+
+
+<table>
+  <tr>
+   <td colspan="2" ><strong>Name</strong>
+   </td>
+   <td colspan="2" ><strong>Options</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Result
+   </td>
+   <td colspan="3" >Ok—payment is performed, \
+Error—payment is not performed.
+   </td>
+  </tr>
+  <tr>
+   <td>Status
+   </td>
+   <td colspan="3" >Pending—payment is performed, \
+Declined—payment is not performed, \
+Awaiting3DAuthentication—needed to perform 3DS.
+   </td>
+  </tr>
+  <tr>
+   <td>ErrorCode
+   </td>
+   <td colspan="3" >1—there is a technical error, the customer should try again to pay some time later, \
+2—it is not possible to accept payment by bank card. customer should use another payment method, \
+3—payment is declined by the card issuing bank. customer should contact the bank to understand the decline reason and  try again
+   </td>
+  </tr>
+</table>
+
+
+**In case an error in format did NOT appear**
+
+In case input parameter ContentType = text, the result will look like:
+
+
+```
+Id={Id}&Operation=Auth&Result={Result}&Code={Code}&Status={Status}&binCountry={CountryCode}
+```
+
+
+In case of XML:
+
+
+```
+<transaction>
+	<id>{Id}</id>
+	<operation>Auth</operation>
+	<result>{Result}</result>
+	<code>{Code}</code>
+	<status>{Status}</status>
+	<binCountry>{CountryCode}</binCountry>
+</transaction>
+```
+
 
 ## **Moto method**
 

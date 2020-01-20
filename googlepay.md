@@ -1,24 +1,38 @@
 # Описание
 
-GooglePay это быстрый и безопасный метод оплаты в «один клик». Используя GooglePay покупатель может оплачивать с помощью:
+### <span>Google Pay &trade;</span> это быстрый и безопасный метод оплаты в «один клик». 
+Используя Google Pay API покупатель может оплачивать с помощью:
 
-1)карты привязанной к его личному google-pay аккаунту (Токенизированная карта). В этом случае При нажатии на кнопку G-Pay генерируется токен, который потом надо передать в метод Auth. И на этом оплата завершается.
+1) карты привязанной к его личному Google Pay аккаунту (Токенизированная карта). В этом случае При нажатии на кнопку Google Pay генерируется токен, который потом надо передать в метод Auth. И на этом оплата завершается.
 
-2)непривязанной карты. (Нетокенизированная карта). В этом случае вы должны получить токен,  передать его в метод Auth, и пройти процедуру 3ds аутентификации.
+2) непривязанной карты. (Нетокенизированная карта). В этом случае вы должны получить токен,  передать его в метод Auth, и пройти процедуру 3ds аутентификации.
 
  
+# Условия для интеграции:
 
-# Чтобы начать использовать Google Pay надо
+* ваш сайт должен работать по схеме HTTPS и поддерживать протокол TLS версии 1.2. 
+* домен сайта должен быть зарегистрирован и подтвержден в Google.
+
+# Шаги интеграции
 
 ## 1. Добавить кнопку Google Pay
 
 ### Web.
 
-Вкратце: вы получаете токен и отправляете его себе на бэкенд используя javaScript. И уже на бэкенде вызывает API PayOnline.
+Для интеграции Google Pay с вашим сайтом, необходимо добавить кнопку оплаты Google Pay (см. код ниже) и следовать правилам Google Pay.
 
-При использовании Google Pay API для оплаты через PayOnline покупатели смогут использовать платёжные системы: Visa и MasterCard.
+* [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview)
 
-При инициализации Google Pay API вы должны указать
+* [Google Pay Web integration checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist)
+
+По нажатию необходимо получить токен, отправить его себе на бэкенд, и уже там вызвать API PayOnline.
+
+При использовании Google Pay API для оплаты через PayOnline можно использовать платёжные системы:
+
+* Visa 
+* MasterCard.
+
+При инициализации Google Pay API необходимо указать
 
 * gateway: 'payonline'
 * gatewayMerchantId: '123' - ваш MID в системе PayOnline
@@ -58,12 +72,15 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
             }
         );
     }
+
+    // Информация, полученная от google
     function getGooglePaymentDataRequest() {
         const paymentDataRequest = Object.assign({}, baseRequest);
         paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
         paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
         paymentDataRequest.merchantInfo = {
-            merchantName: 'Example Merchant'
+            merchantName: 'Example Merchant',
+            merchantId: "YourGoogleMerchantId"
         };
         return paymentDataRequest;
     }
@@ -142,38 +159,52 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
     }
 ```
 
-При проведении интеграции Google Pay пожалуйста используйте: 
-
-* [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview), [Google Pay Web integration checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist).
-
-* [ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
-
 ### Android.
 
-Пример кода…
+Для интеграции Google Pay с вашим Android приложением также необходимо добавить кнопку google и следовать правилам:
 
-Также используйте в качестве примера:
+* [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview)
 
-* [Пример](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) использования Google Pay API для оплаты через PayOnline (ссылка на гит-хаб)
+* [Google Pay Android integration checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist).
+
+* [Google Pay Android brand guidelines](https://developers.google.com/pay/api/android/guides/brand-guidelines).
+
+Код с реализованной кнопкой GooglePay:
+
+* [Пример](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) использования Google Pay API для оплаты через PayOnline
 
 * [Пример](https://github.com/google-pay/android-quickstart) использования Google Pay API от Google.
 
-Когда будете имплементировать интеграцию, пожалуйста используйте:
+В вашей реализации необходимо ввести следующие данные
 
-* Руководство по интеграции от google:  [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview), [Google Pay Android integration checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist).
+```kotlin
+val PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS = mapOf(
+        "gateway" to "payonline",
+        "gatewayMerchantId" to "123" //ваш MID в системе PayOnline
+    )
+```
 
-* Правила использования бренда от Google, при добавлении кнопки:  [Google Pay Android brand guidelines](https://developers.google.com/pay/api/android/guides/brand-guidelines).
+```kotlin
+val SUPPORTED_NETWORKS = listOf(
+        "MASTERCARD",
+        "VISA")
+```
 
- 
+Также необходимо имплементировать PayOnline API самостоятельно или использовать [SDK для Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
+
+Логика работы та же, что и в web приложении
+* Нажать на кнопку и получить токен
+* Вызвать <a href="#/api?id=Метод-googlepay">Google Pay</a> метод
+* Если пришел код ошибки Awaiting3DS, то необходимо пройти 3DS аутенфикацию 
+
 
 ## 2. Получить одобрение и зарегистрироваться в Google.
 
 Для этого надо заполнить [форму](https://services.google.com/fb/forms/googlepayAPIenable). После этого с вами свяжется представитель Google и проинструктирует о дальнейших шагах. Будьте готовы отправить в Google ссылку на вашу интеграцию или apk файл для оценки.
 
+
+# Обязательные условия использования Google Pay
  
-
-# Обязательные условия при успользовании Google Pay.
-
 * Условия использования[ GOOGLE PAY API TERMS OF SERVICE](https://payments.developers.google.com/terms/sellertos)
 
 * Список товаров и услуг, запрещённых к оплате через Google Pay:[ GOOGLE PAY APIs ACCEPTABLE USE POLICY](https://payments.developers.google.com/terms/aup)

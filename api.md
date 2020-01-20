@@ -1072,7 +1072,489 @@ Id={Id}&Operation=Auth&Result={Result}&Code={Code}&Status={Status}&binCountry={C
 </transaction>
 ```
 
+## **Метод GooglePay**
 
+Адрес: [https://secure.payonlinesystem.com/payment/transaction/googlepay/](https://secure.payonlinesystem.com/payment/transaction/googlepay/) \
+Описание: авторизует карту и блокирует на ней указанную сумму. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
+
+<p style="text-align: right">
+<em>Параметры метода GooglePay</em></p>
+
+<table>
+  <tr>
+   <td><strong>Название</strong>
+   </td>
+   <td><strong>Описание</strong>
+   </td>
+   <td><strong>Формат данных</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>MerchantId
+   </td>
+   <td>Идентификатор сайта. Обязательный параметр.
+   </td>
+   <td>Целое число.
+   </td>
+  </tr>
+  <tr>
+   <td>OrderId
+   </td>
+   <td>Идентификатор заказа в системе ТСП. \
+Обязательный параметр.
+   </td>
+   <td>Строка, максимальная длина — 50 символов.
+   </td>
+  </tr>
+  <tr>
+   <td>Amount
+   </td>
+   <td>Конечная сумма заказа. Обязательный параметр.
+   </td>
+   <td>Число с фиксированной точкой (Decimal), два знака после точки, например, 1500.99
+   </td>
+  </tr>
+  <tr>
+   <td>Currency
+   </td>
+   <td>Валюта заказа. \
+Обязательный параметр.
+   </td>
+   <td>Строка, три символа.
+   </td>
+  </tr>
+  <tr>
+   <td>SecurityKey
+   </td>
+   <td>Открытый ключ, подтверждающий целостность параметров запроса. Обязательный параметр.
+   </td>
+   <td>Строка, 32 символа в нижнем регистре.
+   </td>
+  </tr>
+  <tr>
+   <td>Ip
+   </td>
+   <td>IP-адрес плательщика. Обязательность оговаривается индивидуально. По умолчанию должен быть передан.
+   </td>
+   <td>Строка в формате xxx.xxx.xxx.xxx, например, 66.11.130.105
+   </td>
+  </tr>
+  <tr>
+   <td>Email
+   </td>
+   <td>E-Mail адрес плательщика. Обязательность оговаривается индивидуально. По умолчанию должен быть передан.
+   </td>
+   <td>Срока, максимальная длина — 50 символов.
+   </td>
+  </tr>
+  <tr>
+   <td>Country
+   </td>
+   <td>Код страны плательщика. Необязательный параметр.
+   </td>
+   <td>2 символа в соответствии со стандартом <a href="http://www.iso.org/iso/home/standards/country_codes.htm">ISO 3166</a>, например, RU.
+   </td>
+  </tr>
+  <tr>
+   <td>PaymentToken
+   </td>
+   <td>Данные карты в зашифрованном виде, полученные от <a href="https://pay.google.com/intl/ru_ru/about/">GooglePay</a>. \
+Обязательный параметр.
+   </td>
+   <td>JSON
+   </td>
+  </tr>
+  <tr>
+   <td>City
+   </td>
+   <td>Город плательщика. Необязательный параметр.
+   </td>
+   <td>Строка, максимальная длина — 50 символов.
+   </td>
+  </tr>
+  <tr>
+   <td>Address
+   </td>
+   <td>Адрес плательщика. Необязательный параметр.
+   </td>
+   <td>Строка, максимальная длина — 150 символов. 
+   </td>
+  </tr>
+  <tr>
+   <td>Zip
+   </td>
+   <td>Почтовый индекс плательщика. Необязательный параметр.
+   </td>
+   <td>Строка, максимальная длина — 10 символов.
+   </td>
+  </tr>
+  <tr>
+   <td>State
+   </td>
+   <td>Штат плательщика — только для стран США и Канада. Необязательный параметр.
+   </td>
+   <td>Строка, два символа, например, FL.
+   </td>
+  </tr>
+  <tr>
+   <td>Phone
+   </td>
+   <td>Телефон плательщика в международном формате. Обязательность оговаривается индивидуально. По умолчанию должен быть передан.
+   </td>
+   <td>Строка, максимальная длина — 50 символов.
+   </td>
+  </tr>
+  <tr>
+   <td>Issuer
+   </td>
+   <td>Наименование банка, выпустившего карту. Необязательный параметр.
+   </td>
+   <td>Строка, максимальная длина — 100 символов.
+   </td>
+  </tr>
+  <tr>
+   <td>ContentType
+   </td>
+   <td>Формат вывода результата — текст или xml. \
+Необязательный параметр, по умолчанию — text.
+   </td>
+   <td>Строка.
+   </td>
+  </tr>
+  <tr>
+   <td>OrderDescription
+   </td>
+   <td>Описание заказа, отображаемое для плательщика на платёжных формах и в e-mail уведомлениях. \
+Необязательный параметр.
+   </td>
+   <td>Строка в кодировке UTF-8 в закодированном виде (url encode). Максимум — 100 символов. Разрешенные символы: буквы, цифры, знаки препинания.
+   </td>
+  </tr>
+  <tr>
+   <td>Любые другие
+   </td>
+   <td>Любые другие параметры.
+   </td>
+   <td>Любой формат.
+   </td>
+  </tr>
+</table>
+
+
+Возможные варианты перечислений:
+
+
+<table>
+  <tr>
+   <td><strong>Название</strong>
+   </td>
+   <td><strong>Варианты</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Currency
+   </td>
+   <td>Код валюты в соответствии с <a href="http://www.iso.org/iso/ru/currency_codes">ISO 4217</a>
+   </td>
+  </tr>
+  <tr>
+   <td>ContentType
+   </td>
+   <td>xml — результат в формате XML;
+<p>
+text — результат в текстовом формате.
+   </td>
+  </tr>
+</table>
+
+
+SecurityKey должен формироваться по алгоритму, описанному в разделе «[Параметр SecurityKey](#Параметр-SecurityKey)».
+
+Для формирования SecurityKey в запросе к методу ApplePay, может быть использован либо секретный ключ PrivateSecurityKey, либо ключ PaymentKey.
+
+В случае использования PrivateSecurityKey, в качестве аргумента к функции вычисления хеша подставляется:
+
+Если указан OrderDescription
+
+
+```
+MerchantId={MerchantId}&OrderId={OrderId}&Amount={Amount}&Currency={Currency}&OrderDescription={OrderDescription}&PaymentToken={PaymentToken}&PrivateSecurityKey={PrivateSecurityKey}
+```
+
+
+Если OrderDescription не указан
+
+
+```
+MerchantId={MerchantId}&OrderId={OrderId}&Amount={Amount}&Currency={Currency}&PaymentToken={PaymentToken}&PrivateSecurityKey={PrivateSecurityKey}
+```
+
+
+
+
+В случае использования PaymentKey, в качестве аргумента к функции вычисления хеша подставляется:
+
+Если указан OrderDescription
+
+
+```
+MerchantId={MerchantId}&OrderId={OrderId}&Amount={Amount}&Currency={Currency}&OrderDescription={OrderDescription}&PaymentToken={PaymentToken}&PaymentKey={PaymentKey}
+```
+
+
+Если OrderDescription не указан
+
+
+```
+MerchantId={MerchantId}&OrderId={OrderId}&Amount={Amount}&Currency={Currency}&PaymentToken={PaymentToken}&PaymentKey={PaymentKey}
+```
+
+
+В ответ на запрос, метод отдает следующие данные:
+
+Если была ошибка формата:
+
+
+<table>
+  <tr>
+   <td><strong>Название</strong>
+   </td>
+   <td><strong>Описание</strong>
+   </td>
+   <td><strong>Тип данных</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Code
+   </td>
+   <td>Код ошибки. Обязательный элемент.
+   </td>
+   <td>Целое число.
+   </td>
+  </tr>
+  <tr>
+   <td>Message
+   </td>
+   <td>Описание ошибки. Обязательный элемент.
+   </td>
+   <td>Строка.
+   </td>
+  </tr>
+</table>
+
+
+Если входной параметр ContentType = text, то результат будет выглядеть следующим образом:
+
+
+```
+Code={Code}&Message={Message}
+```
+
+
+Если XML:
+
+
+```
+<error>
+	<code>{Code}</code>
+	<message>{Message}</message>
+</error>
+```
+
+
+Если ошибок формата не было:
+
+
+<table>
+  <tr>
+   <td><strong>Название</strong>
+   </td>
+   <td><strong>Описание</strong>
+   </td>
+   <td><strong>Формат данных</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>Id
+   </td>
+   <td>Идентификатор транзакции. Обязательный элемент.
+   </td>
+   <td>Целое число (Long).
+   </td>
+  </tr>
+  <tr>
+   <td>Operation
+   </td>
+   <td>Название операции, Auth. Обязательный элемент.
+   </td>
+   <td>Строка.
+   </td>
+  </tr>
+  <tr>
+   <td>Result
+   </td>
+   <td>Результат выполнения. Обязательный элемент.
+   </td>
+   <td>Строка.
+   </td>
+  </tr>
+  <tr>
+   <td>Code
+   </td>
+   <td>Код результата. Если Code = 6001, то плательщик должен пройти 3DS-авторизацию на сайте эмитента. После 3DS-авторизации нужно вызвать метод 3DS, который описан в разделе «<a href="#/?id=Метод-3ds">Метод 3DS</a>».  \
+Обязательный элемент.
+   </td>
+   <td>Число.
+   </td>
+  </tr>
+  <tr>
+   <td>Status
+   </td>
+   <td>Статус транзакции. \
+Обязательный элемент.
+   </td>
+   <td>Строка.
+   </td>
+  </tr>
+  <tr>
+   <td>ErrorCode
+   </td>
+   <td>Код ошибки. Только, если платеж не выполнен.
+   </td>
+   <td>Число.
+   </td>
+  </tr>
+  <tr>
+   <td>RebillAnchor
+   </td>
+   <td>Ссылка на повторные платежи по данной карте. Только, если платеж выполнен и ТСП подписано на услугу повторных платежей.
+   </td>
+   <td>Строка, максимальная длина — 100 символов.
+   </td>
+  </tr>
+  <tr>
+   <td>IpCountry
+   </td>
+   <td>Код страны, определенный по IP-адресу плательщика. Необязательный элемент.
+   </td>
+   <td>2 символа в соответствии со стандартом <a href="http://www.iso.org/iso/home/standards/country_codes.htm">ISO 3166</a>, например, RU.
+   </td>
+  </tr>
+  <tr>
+   <td>BinCountry
+   </td>
+   <td>Код страны банка, выпустившего карту. Необязательный элемент.
+   </td>
+   <td>2 символа в соответствии со стандартом <a href="http://www.iso.org/iso/home/standards/country_codes.htm">ISO 3166</a>, например, RU.
+   </td>
+  </tr>
+  <tr>
+   <td>SpecialConditions
+   </td>
+   <td>Особые условия. \
+Необязательный элемент.
+   </td>
+   <td>Строка, одно или несколько значений, перечисленных через запятую:  \
+ValidationRequired — рекомендуется проверка плательщика.
+   </td>
+  </tr>
+
+  <tr>
+   <td>PAReq
+   </td>
+   <td>PAReq. \
+Необязательный элемент.
+   </td>
+   <td>PAReq присылается, если необходима <a href="#/?id=Метод-3ds">3DS аутенфикация</a>
+   </td>
+  </tr>
+
+  <tr>
+   <td>AcsUrl
+   </td>
+   <td>AcsUrl. \
+Необязательный элемент.
+   </td>
+   <td>Url по которому необходимо перейти в случае <a href="#/?id=Метод-3ds">3DS аутенфикации</a>
+   </td>
+  </tr>
+
+  <tr>
+   <td>PD
+   </td>
+   <td>PD. \
+Необязательный элемент.
+   </td>
+   <td>PD присылается, если необходима <a href="#/?id=Метод-3ds">3DS аутенфикация</a>
+   </td>
+  </tr>
+</table>
+
+
+Возможные варианты перечислений:
+
+
+<table>
+  <tr>
+   <td><strong>Название</strong>
+   </td>
+   <td colspan="3" ><strong>Варианты</strong>
+   </td>
+  </tr>
+  <tr>
+   <td colspan="2" >Result
+   </td>
+   <td>Ok — платеж выполнен;
+<p>
+Error — платеж не выполнен.
+   </td>
+  </tr>
+  <tr>
+   <td colspan="2" >Status
+   </td>
+   <td>Pending — платеж выполнен;
+<p>
+PreAuthorized — платеж выполнен, требуется подтверждение;
+<p>
+Declined — платеж не выполнен.
+   </td>
+  </tr>
+  <tr>
+   <td colspan="2" >ErrorCode
+   </td>
+   <td>1 — техническая проблема; плательщику стоит повторить запрос спустя некоторое время;
+<p>
+2 — провести платеж по банковской карте невозможно; плательщику стоит воспользоваться другим способом оплаты;
+<p>
+3 — платеж отклоняется банком-эмитентом карты; плательщику стоит, выяснить причину отказа в банке и повторить запрос.
+   </td>
+  </tr>
+</table>
+
+
+Если ошибок формата не было:
+
+Если входной параметр ContentType = text, то результат будет выглядеть следующим образом:
+
+
+```
+Id={Id}&Operation=Auth&Result={Result}&Code={Code}&Status={Status}&binCountry={CountryCode}
+```
+
+
+Если XML:
+
+
+```
+<transaction>
+	<id>{Id}</id>
+	<operation>Auth</operation>
+	<result>{Result}</result>
+	<code>{Code}</code>
+	<status>{Status}</status>
+	<binCountry>{CountryCode}</binCountry>
+</transaction>
+```
 
 ## **Метод Moto**
 

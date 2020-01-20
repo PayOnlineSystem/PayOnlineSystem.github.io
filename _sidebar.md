@@ -1,4 +1,5 @@
 <!-- docs/_sidebar.md -->
 
-* [Общая информация](/)
+* [О нас](/)
 * [API](api)
+* [Google Pay](googlepay)
