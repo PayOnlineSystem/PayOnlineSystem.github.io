@@ -12,7 +12,7 @@ GooglePay это быстрый и безопасный метод оплаты 
 
 ## 1. Добавить кнопку Google Pay
 
-### Веб.
+### Web.
 
 Вкратце: вы получаете токен и отправляете его себе на бэкенд используя javaScript. И уже на бэкенде вызывает API PayOnline.
 
@@ -138,15 +138,15 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 
 При проведении интеграции Google Pay пожалуйста используйте: 
 
-* Руководство по интеграции от google:  [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview), [Google Pay Web integration checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist).
+* [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview), [Google Pay Web integration checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist).
 
-* Правила использования бренда от Google, при добавлении кнопки:[ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
+* [ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
 
 ### Android.
 
 Пример кода…
 
-Также смотрите в качестве примера:
+Также используйте в качестве примера:
 
 * [Пример](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) использования Google Pay API для оплаты через PayOnline (ссылка на гит-хаб)
 
