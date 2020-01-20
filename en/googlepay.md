@@ -1,22 +1,22 @@
-**Описание**
+**Description**
 
-GooglePay это быстрый и безопасный метод оплаты в «один клик». Используя GooglePay покупатель может оплачивать с помощью:
+GooglePay is a fast and secure one-click payment method. Using GooglePay, the buyer can pay using:
 
-1)карты привязанной к его личному google-pay аккаунту (Токенизированная карта). В этом случае При нажатии на кнопку G-Pay генерируется токен, который потом надо передать в метод Auth. И на этом оплата завершается.
+1) cards tied to his personal google-pay account (Tokenized card). In this case, when you click on the G-Pay button, a token is generated, which then must be transferred to the Auth method. And this completes the payment.
 
-2)непривязанной карты. (Нетокенизированная карта). В этом случае вы должны получить токен,  передать его в метод Auth, и пройти процедуру 3ds аутентификации.
+2) an unattached card. (Non-Tokenized Card). In this case, you should get the token, pass it to the Auth method, and go through the 3ds authentication procedure.
 
  
 
-**Чтобы начать использовать GooglePay надо**
+**To start using GooglePay you need**
 
-**1)Добавить кнопку G-Pay**
+**1) Add G-Pay Button**
 
-**Для веб страницы.**
+**For web page.**
 
-Вкратце: вы получаете токен и отправляете его себе на бэкенд используя javaScript. И уже на бэкенде вызывает API PayOnline.
+In short: you get a token and send it to your backend using javaScript. And already on the backend it calls the PayOnline API.
 
-При использовании Google Pay API для оплаты через PayOnline покупатели смогут использовать платёжные системы: Visa и MasterCard.
+When using the Google Pay API to pay via PayOnline, customers will be able to use payment systems: Visa and MasterCard.
 
 ```javascript
 const allowedCardNetworks = ["MASTERCARD", "VISA"];
@@ -138,9 +138,9 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 
  
 
-Руководство по интеграции от google:  [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview), [Google Pay Web integration checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist).
+Google integration guide:  [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview), [Google Pay Web integration checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist).
 
-Правила использования бренда от Google, при добавлении кнопки:[ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
+Google’s branding guidelines when adding a button:[ Google Pay Android brand guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines).
 
 **Для андроид приложения.**
 
@@ -150,13 +150,13 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 
 [Пример](https://github.com/google-pay/android-quickstart) использования Google Pay API от Google.
 
-Руководство по интеграции от google:  [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview), [Google Pay Android integration checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist).
+Google integration guide:  [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview), [Google Pay Android integration checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist).
 
-Правила использования бренда от Google, при добавлении кнопки:  [Google Pay Android brand guidelines](https://developers.google.com/pay/api/android/guides/brand-guidelines).
+Google’s branding guidelines when adding a button:  [Google Pay Android brand guidelines](https://developers.google.com/pay/api/android/guides/brand-guidelines).
 
  
 
-**2)Получить одобрение и зарегистрироваться в Google.**
+**2) Get Google approve.**
 
 Для этого надо заполнить[ форму](https://services.google.com/fb/forms/googlepayAPIenable). После этого с вами свяжется представитель Google и проинструктирует о дальнейших шагах. На этом шаге вы отправите в Google ссылку на вашу интеграцию или apk файл для оценки интеграции.
 
