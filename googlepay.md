@@ -8,9 +8,9 @@ GooglePay это быстрый и безопасный метод оплаты 
 
  
 
-# Чтобы начать использовать GooglePay надо
+# Чтобы начать использовать Google Pay надо
 
-## 1. Добавить кнопку G-Pay
+## 1. Добавить кнопку Google Pay
 
 ### Веб.
 
@@ -148,7 +148,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 
 Также смотрите:
 
-* Пример использования Google Pay API для оплаты через PayOnline (ссылка на гит-хаб)
+* [Пример](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) использования Google Pay API для оплаты через PayOnline (ссылка на гит-хаб)
 
 * [Пример](https://github.com/google-pay/android-quickstart) использования Google Pay API от Google.
 
@@ -162,7 +162,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 
 ## 2. Получить одобрение и зарегистрироваться в Google.
 
-Для этого надо заполнить[ форму](https://services.google.com/fb/forms/googlepayAPIenable). После этого с вами свяжется представитель Google и проинструктирует о дальнейших шагах. На этом шаге вы отправите в Google ссылку на вашу интеграцию или apk файл для оценки интеграции.
+Для этого надо заполнить [форму](https://services.google.com/fb/forms/googlepayAPIenable). После этого с вами свяжется представитель Google и проинструктирует о дальнейших шагах. На этом шаге вы отправите в Google ссылку на вашу интеграцию или apk файл для оценки интеграции.
 
  
 
