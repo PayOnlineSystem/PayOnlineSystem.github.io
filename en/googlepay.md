@@ -16,7 +16,13 @@ Google Pay is a fast and secured one-click payment method. Using Google Pay, the
 
 In short: you should get a token and pass it to your backend system. Then your backend will calls the PayOnline API.
 
-*When using the Google Pay API to pay via PayOnline, customers will be able to use payment systems: Visa and MasterCard.*
+When using the Google Pay API to pay via PayOnline, customers will be able to use payment systems: Visa and MasterCard.
+
+At Google Pay API initialization you should specify:
+
+* gateway: 'payonline'
+* gatewayMerchantId: '123' - your MID in PayOnline system
+
 
 ```javascript
 const allowedCardNetworks = ["MASTERCARD", "VISA"];
