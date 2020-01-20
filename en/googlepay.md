@@ -156,7 +156,7 @@ When implementing Google Pay integration please use:
 
 Also you can see:
 
-* [Example](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) of using the Google Pay API from PayOnline
+* [Example](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) of using Google Pay API from PayOnline
 
 * [Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
 
