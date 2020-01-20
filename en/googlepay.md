@@ -1,4 +1,4 @@
-**Description**
+# Description
 
 GooglePay is a fast and secure one-click payment method. Using GooglePay, the buyer can pay using:
 
@@ -8,7 +8,7 @@ GooglePay is a fast and secure one-click payment method. Using GooglePay, the bu
 
  
 
-**To start using Google Pay API you need**
+# To start using Google Pay API you need
 
 **1. Add G-Pay Button**
 
@@ -166,7 +166,7 @@ Please complete [application](https://services.google.com/fb/forms/googlepayAPIe
 
  
 
-**Prerequisites for using Google Pay API.**
+# Prerequisites for using Google Pay API.
 
 * [ GOOGLE PAY API TERMS OF SERVICE](https://payments.developers.google.com/terms/sellertos)
 
