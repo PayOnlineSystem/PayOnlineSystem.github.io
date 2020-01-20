@@ -14,9 +14,9 @@ GooglePay is a fast and secure one-click payment method. Using GooglePay, the bu
 
 **For web page.**
 
-In short: you should get a token and pass it to your backend system. And already on the backend it calls the PayOnline API.
+In short: you should get a token and pass it to your backend system. Then your backend calls the PayOnline API.
 
-When using the Google Pay API to pay via PayOnline, customers will be able to use payment systems: Visa and MasterCard.
+*When using the Google Pay API to pay via PayOnline, customers will be able to use payment systems: Visa and MasterCard.*
 
 ```javascript
 const allowedCardNetworks = ["MASTERCARD", "VISA"];
