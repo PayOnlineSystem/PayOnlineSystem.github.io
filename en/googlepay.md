@@ -193,7 +193,7 @@ val SUPPORTED_NETWORKS = listOf(
         "VISA")
 ```
 
-Full example you can find at [PayOnline.AndroidSample](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) github repository.
+Full example you can find in our github repository [PayOnline.AndroidSample](https://github.com/PayOnlineSystem/PayOnline.AndroidSample).
 Also you can see [Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
 
 When implement integration please use:
