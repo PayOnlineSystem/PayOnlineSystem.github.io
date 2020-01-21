@@ -27,7 +27,7 @@ Step by step short instruction:
 * Call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
 * If you got Awaiting3DS, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
 
-When using the Google Pay API to pay via PayOnline, customers will be able to use next payment systems:
+Customers will be able to use next payment systems:
 * Visa
 * MasterCard.
 
