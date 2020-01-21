@@ -36,7 +36,7 @@ Parameters you should specify to process transactions via PayOnline gateway:
 * gateway: 'payonline'
 * gatewayMerchantId: '123' - your MID in PayOnline system
 
-Example shows how initialize Google Pay button with PayOnline specific parameters, collect token and pass to backend. 
+Example shows how initialize Google Pay button with PayOnline specific parameters, get token and pass to backend. 
 ```javascript
 const allowedCardNetworks = ["MASTERCARD", "VISA"];
     const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
