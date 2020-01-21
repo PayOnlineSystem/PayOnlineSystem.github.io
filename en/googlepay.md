@@ -165,7 +165,7 @@ When implement integration please use:
 
 ### Android.
 
-You need to implement PayOnline API or use [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
+To work with PayOnline API you need to use [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
 
 Step by step short instruction:
 * Press Google Pay button to get token
