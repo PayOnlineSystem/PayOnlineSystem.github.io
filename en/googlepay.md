@@ -180,7 +180,6 @@ In order to process transactions via PayOnline gateway you should specify next p
 * gateway: 'payonline'
 * gatewayMerchantId: '123' - your MID in PayOnline system
 
-Like this
 ```kotlin
 val PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS = mapOf(
         "gateway" to "payonline",
@@ -194,11 +193,8 @@ val SUPPORTED_NETWORKS = listOf(
         "VISA")
 ```
 
-Full examples:
-
-* [Example](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) of using Google Pay API from PayOnline
-
-* [Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
+Full example you can find at [PayOnline.AndroidSample](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) github repository.
+Also you can see [Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
 
 When implement Google Pay integration use:
 
