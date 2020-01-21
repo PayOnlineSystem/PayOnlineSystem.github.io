@@ -2,7 +2,7 @@
 # Description
 
 ### <span>Google Pay&trade;</span> is a fast and secured one-click payment method.
-Using Google Pay API, the customer can pay using:
+By Google Pay API, the customer can pay using:
 
 1) Tokenized card. In this case, when you click on the Google Pay button, a token is generated, then token must be passed to the Auth method. And that is all.
 
