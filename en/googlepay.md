@@ -29,7 +29,7 @@ Step by step short instruction:
 
 Customers will be able to use next payment systems:
 * Visa
-* MasterCard.
+* MasterCard
 
 Parameters you should specify to process transactions via PayOnline gateway:
 
@@ -165,8 +165,6 @@ When implement Google Pay integration please use:
 
 ### Android.
 
-To integrate Google Pay with your Android application, you also need to add a Google Pay button
-
 You need to implement PayOnline API or use [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
 
 Step by step short instruction:
@@ -174,8 +172,15 @@ Step by step short instruction:
 * Call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
 * If you got Awaiting3DS, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
 
-In order to process transactions via PayOnline gateway you should specify next parameters:
+Customers will be able to use next payment systems:
+* Visa
+* MasterCard
 
+In order to process transactions via PayOnline gateway you should specify next parameters:
+* gateway: 'payonline'
+* gatewayMerchantId: '123' - your MID in PayOnline system
+
+Like this
 ```kotlin
 val PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS = mapOf(
         "gateway" to "payonline",
@@ -189,7 +194,7 @@ val SUPPORTED_NETWORKS = listOf(
         "VISA")
 ```
 
-More examples:
+Full examples:
 
 * [Example](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) of using Google Pay API from PayOnline
 
