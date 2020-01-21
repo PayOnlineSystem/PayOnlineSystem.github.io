@@ -31,7 +31,7 @@ When using the Google Pay API to pay via PayOnline, customers will be able to us
 * Visa
 * MasterCard.
 
-At Google Pay API initialization you should specify:
+Parameters you should specify to process transactions via payonline gateway:
 
 * gateway: 'payonline'
 * gatewayMerchantId: '123' - your MID in PayOnline system
