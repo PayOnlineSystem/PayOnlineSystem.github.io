@@ -167,7 +167,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 
 ### Android.
 
-Вам надо использовать [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
+Для работы с PayOnline API вам надо использовать [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
 
 Краткая пошаговая инструкция:
 * Нажать на кнопку Google Pay для получения токена
