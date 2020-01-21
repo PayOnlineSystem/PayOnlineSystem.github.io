@@ -10,7 +10,7 @@
  
 # Условия для интеграции:
 
-* ваш сайт должен работать по схеме HTTPS и поддерживать протокол TLS версии 1.2. 
+* ваш сайт должен работать по схеме HTTPS и иметь валидный TLS сертификат для домена. 
 * вы должны соблюдать [Правила использования Google Pay API](https://payments.developers.google.com/terms/aup)
 * вы должны принять [Условия использования Google Pay API](https://payments.developers.google.com/terms/sellertos)
 
