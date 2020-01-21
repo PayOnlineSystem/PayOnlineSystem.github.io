@@ -31,7 +31,7 @@ When using the Google Pay API to pay via PayOnline, customers will be able to us
 * Visa
 * MasterCard.
 
-Parameters you should specify to process transactions via payonline gateway:
+Parameters you should specify to process transactions via PayOnline gateway:
 
 * gateway: 'payonline'
 * gatewayMerchantId: '123' - your MID in PayOnline system
@@ -174,7 +174,7 @@ Step by step short instruction:
 * Call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
 * If you got Awaiting3DS, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
 
-In order to process transactions using PayOnline you should specify next parameters:
+In order to process transactions via PayOnline gateway you should specify next parameters:
 
 ```kotlin
 val PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS = mapOf(
