@@ -21,8 +21,7 @@ Using Google Pay API, the customer can pay using:
 
 ### Web.
 
-In order to process Google Pay transaction you should:
-
+Step by step short instruction:
 * Get token (press Google Pay button)
 * Pass token to your backend
 * Call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
@@ -170,7 +169,7 @@ To integrate Google Pay with your Android application, you also need to add a Go
 
 You need to implement PayOnline API or use [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
 
-Logic of payment:
+Step by step short instruction:
 * Press Google Pay button to get token
 * Call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
 * If you got Awaiting3DS, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
