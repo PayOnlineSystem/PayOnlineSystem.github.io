@@ -155,7 +155,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 ```
 
  
-When implement Google Pay integration please use:
+When implement integration please use:
 
 * [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview)
 
@@ -196,7 +196,7 @@ val SUPPORTED_NETWORKS = listOf(
 Full example you can find at [PayOnline.AndroidSample](https://github.com/PayOnlineSystem/PayOnline.AndroidSample) github repository.
 Also you can see [Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
 
-When implement Google Pay integration use:
+When implement integration please use:
 
 * [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview)
 
