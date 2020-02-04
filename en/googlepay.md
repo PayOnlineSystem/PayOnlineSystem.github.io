@@ -31,18 +31,18 @@ Visa and MasterCard
     const allowedCardNetworks = ["MASTERCARD", "VISA"];
 ```
 
-### Parameters you should specify to use PayOnline as gateway
-* 'gateway' : 'payonline'
-* 'gatewayMerchantId' : '123' - your MID in PayOnline system
+### Parameters you should specify in order to use PayOnline as gateway
+* gateway : 'payonline'
+* gatewayMerchantId : '123' - your MID in PayOnline system
 
 ### Billing and Shipping address parameters
 No any additional BillingAddress or ShippingAddress parameters are required
 
-### How to send encrypted payment data to PayOnline
-Review <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API\
+### How to send encrypted payment data(token) to PayOnline
+Use <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API\
 You should pass encrypted data in "PaymentToken" parameter of the request.
 
-### Bring all together
+### All steps together
 1. Add button on the page
 2. Get token (press the button)
 3. Pass token to your backend
@@ -218,7 +218,7 @@ val PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS = mapOf(
 No any additional BillingAddress or ShippingAddress parameters are required
 
 ### How to send encrypted payment data to PayOnline
-Review <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API\
+Use <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API\
 You should pass encrypted data in "PaymentToken" parameter of the request.\
 To work with PayOnline API in android you can use [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
 
