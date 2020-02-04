@@ -47,7 +47,7 @@ No any additional BillingAddress or ShippingAddress parameters are required
 ### Full example
 Example shows how initialize Google Pay button with PayOnline specific parameters, get token and pass to backend. 
 ```javascript
-$(function () {
+
     const baseRequest = {
         apiVersion: 2,
         apiVersionMinor: 0
@@ -167,10 +167,11 @@ $(function () {
            }
         });
     }
-    onGooglePayLoaded();
-});
 ```
-
+At the end of the page
+```javascript
+<script async src="https://pay.google.com/gp/p/js/pay.js" onload="onGooglePayLoaded()"></script>
+````
  
 When implement integration please use:
 
