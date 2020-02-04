@@ -38,14 +38,14 @@ Visa and MasterCard
 ### Billing and Shipping address parameters
 No any additional BillingAddress or ShippingAddress parameters are required
 
-### Step by step short instruction
+### Step by step guide
 1. Get token
 2. Pass token to your backend
 3. Call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
 4. If you got Awaiting3DS, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
 
-### Frontend example
-Example covers 1 and 2 point of [short instruction](#step-by-step-short-instruction) shows how initialize Google Pay button with PayOnline specific parameters, get token and pass to backend. 
+### JavaScript example
+Example covers 1 and 2 point of [short instruction](#step-by-step-guide) shows how initialize Google Pay button with PayOnline specific parameters, get token and pass to backend. 
 ```javascript
 
     const baseRequest = {
