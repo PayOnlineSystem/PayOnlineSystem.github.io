@@ -178,7 +178,7 @@ At the end of the page
 <script async src="https://pay.google.com/gp/p/js/pay.js" onload="onGooglePayLoaded()"></script>
 ````
  
-When implement integration please use:
+### When implement integration please use
 
 * [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview)
 
@@ -234,36 +234,7 @@ To work with PayOnline API you need to use [PayOnline SDK for Android](https://g
 Full example you can find in our github repository [PayOnline.AndroidSample](https://github.com/PayOnlineSystem/PayOnline.AndroidSample).\
 Also you can see [Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
 
-Step by step short instruction:
-* Press Google Pay button to get token
-* Call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
-* If you got Awaiting3DS, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
-
-Customers will be able to use next payment systems:
-* Visa
-* MasterCard
-
-In order to process transactions via PayOnline gateway you should specify next parameters:
-* gateway: 'payonline'
-* gatewayMerchantId: '123' - your MID in PayOnline system
-
-```kotlin
-val PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS = mapOf(
-        "gateway" to "payonline",
-        "gatewayMerchantId" to "123" //Your MID in PayOnline system
-    )
-```
-
-```kotlin
-val SUPPORTED_NETWORKS = listOf(
-        "MASTERCARD",
-        "VISA")
-```
-
-Full example you can find in our github repository [PayOnline.AndroidSample](https://github.com/PayOnlineSystem/PayOnline.AndroidSample).
-Also you can see [Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
-
-When implement integration please use:
+### When implement integration please use
 
 * [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview)
 
