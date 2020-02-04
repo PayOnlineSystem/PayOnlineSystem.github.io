@@ -44,9 +44,16 @@ Visa and MasterCard
 ### Billing and Shipping address parameters
 No any additional BillingAddress or ShippingAddress parameters are required
 
+### Full example
 Example shows how initialize Google Pay button with PayOnline specific parameters, get token and pass to backend. 
 ```javascript
-const allowedCardNetworks = ["MASTERCARD", "VISA"];
+$(function () {
+    const baseRequest = {
+        apiVersion: 2,
+        apiVersionMinor: 0
+    };
+
+    const allowedCardNetworks = ["MASTERCARD", "VISA"];
     const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
     const tokenizationSpecification = {
         type: 'PAYMENT_GATEWAY',
@@ -149,17 +156,19 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
         var token = JSON.stringify(paymentData);
         //pass token to your backend, then call method googlePay of PayOnline API
         $.post("/GooglePay", token).then(function (result) {
-        if (result.Success) {
-            //payment successfully completed
-        } else {
-            if (result.AwaitingThreeDS) { 
-                //3ds authentication required
-            } else {
-                //payment declined
-            }
-        }
-    });
+           if (result.Success) {
+               //payment successfully completed
+           } else {
+               if (result.AwaitingThreeDS) { 
+                   //3ds authentication required
+               } else {
+                   //payment declined
+               }
+           }
+        });
     }
+    onGooglePayLoaded();
+});
 ```
 
  
