@@ -43,13 +43,14 @@ Review <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline 
 You should pass encrypted data in "PaymentToken" parameter of the request.
 
 ### Bring all together
-1. Get token
-2. Pass token to your backend
-3. At the backend side call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
-4. If you got Awaiting3DS in response, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
+1. Add button on the page
+2. Get token (press the button)
+3. Pass token to your backend
+4. At the backend side call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
+5. If you got Awaiting3DS in response, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
 
 ### Code example
-Example covers 1 and 2 point of [guide](#bring-all-together) (shows how initialize Google Pay button with PayOnline specific parameters, get token and pass to backend). 
+Example covers 1, 2 and 3 point of [guide](#bring-all-together) (shows how initialize Google Pay button with PayOnline specific parameters, get token and pass to backend). 
 ```javascript
 
     const baseRequest = {
@@ -219,8 +220,9 @@ Review <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline 
 You should pass encrypted data in "PaymentToken" parameter of the request.
 
 ### All steps together
-1. Press Google Pay button to get token
-2. At the backend side call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
+1. Add button on the view
+2. Press Google Pay button to get token
+3. At the backend side call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
 4. If you got Awaiting3DS in response, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
 
 To work with PayOnline API you need to use [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
