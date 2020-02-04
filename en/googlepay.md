@@ -38,8 +38,9 @@ Visa and MasterCard
 ### Billing and Shipping address parameters
 No any additional BillingAddress or ShippingAddress parameters are required
 
-### How to send encrypted token to PayOnline
-Use <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
+### How to send encrypted payment data to PayOnline
+Review <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API\
+You should pass encrypted data in "PaymentToken" parameter of the request.
 
 ### Bring all together
 1. Get token
