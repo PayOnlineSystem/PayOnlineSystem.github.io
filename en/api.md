@@ -1048,13 +1048,13 @@ In case of XML:
 
 ## **GooglePay method**
 
-Endpoint url:_ [https://secure.payonlinesystem.com/payment/transaction/googlepay/](https://secure.payonlinesystem.com/payment/transaction/googlepay/) \
-Description:_ Authorizes a payment transaction. \
+Endpoint url: [https://secure.payonlinesystem.com/payment/transaction/googlepay/](https://secure.payonlinesystem.com/payment/transaction/googlepay/) \
+Description: Authorizes a payment transaction. \
 Http-method: POST \
 Encoding: UTF-8
 
 <p style="text-align: right">
-<em>ApplePay request parameters</em></p>
+<em>GooglePay request parameters</em></p>
 
 
 
@@ -1243,7 +1243,7 @@ xml—result in XML format.
 
 SecurityKey should be formed according to the algorithm described in “[SecurityKey parameter](#SecurityKey-parameter)”
 
-It is possible to use either private key PrivateSecurityKey or key PaymentKey to compose  SecurityKey in ApplePay method request. 
+It is possible to use either private key PrivateSecurityKey or key PaymentKey to compose  SecurityKey in GooglePay method request. 
 
 In case PrivateSecurityKey is used, the argument to the function, which calculates the hash, is described as:
 

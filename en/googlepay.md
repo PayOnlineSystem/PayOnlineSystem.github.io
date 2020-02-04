@@ -17,28 +17,48 @@ By Google Pay API, the customer can pay using:
 
 # Integration steps
 
-## 1. Add Google Pay Button
+## Web.
 
-### Web.
-
-Step by step short instruction:
-* Get token (press Google Pay button)
-* Pass token to your backend
-* Call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
-* If you got Awaiting3DS, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
-
-Customers will be able to use next payment systems:
-* Visa
-* MasterCard
-
-Parameters you should specify to process transactions via PayOnline gateway:
-
-* gateway: 'payonline'
-* gatewayMerchantId: '123' - your MID in PayOnline system
-
-Example shows how initialize Google Pay button with PayOnline specific parameters, get token and pass to backend. 
+### Authorization methods you can use
+"PAN_ONLY" and "CRYPTOGRAM_3DS"
 ```javascript
-const allowedCardNetworks = ["MASTERCARD", "VISA"];
+    const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
+```
+
+### Payment networks you can use
+Visa and MasterCard
+```javascript
+    const allowedCardNetworks = ["MASTERCARD", "VISA"];
+```
+
+### Parameters you should specify in order to use PayOnline as gateway
+* gateway : 'payonline'
+* gatewayMerchantId : '123' - your MID in PayOnline system
+
+### Billing and Shipping address parameters
+No any additional BillingAddress or ShippingAddress parameters are required
+
+### How to send encrypted payment data(token) to PayOnline
+Use <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API\
+You should pass encrypted data in "PaymentToken" parameter of the request.
+
+### All steps together
+1. Add button on the page
+2. Get token (press the button)
+3. Pass token to your backend
+4. At the backend side call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
+5. If you got Awaiting3DS in response, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
+
+### Code example
+Example covers 1, 2 and 3 point of [guide](#bring-all-together) (shows how initialize Google Pay button with PayOnline specific parameters, get token and pass to backend). 
+```javascript
+
+    const baseRequest = {
+        apiVersion: 2,
+        apiVersionMinor: 0
+    };
+
+    const allowedCardNetworks = ["MASTERCARD", "VISA"];
     const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
     const tokenizationSpecification = {
         type: 'PAYMENT_GATEWAY',
@@ -141,21 +161,24 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
         var token = JSON.stringify(paymentData);
         //pass token to your backend, then call method googlePay of PayOnline API
         $.post("/GooglePay", token).then(function (result) {
-        if (result.Success) {
-            //payment successfully completed
-        } else {
-            if (result.AwaitingThreeDS) { 
-                //3ds authentication required
-            } else {
-                //payment declined
-            }
-        }
-    });
+           if (result.Success) {
+               //payment successfully completed
+           } else {
+               if (result.AwaitingThreeDS) { 
+                   //3ds authentication required
+               } else {
+                   //payment declined
+               }
+           }
+        });
     }
 ```
-
+At the end of the page
+```javascript
+<script async src="https://pay.google.com/gp/p/js/pay.js" onload="onGooglePayLoaded()"></script>
+````
  
-When implement integration please use:
+### When implement integration please use
 
 * [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview)
 
@@ -163,23 +186,27 @@ When implement integration please use:
 
 * [Google Pay Web Brand Guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines)
 
-### Android.
+## Android.
 
-To work with PayOnline API you need to use [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
+### Authorization methods you can use
+"PAN_ONLY" and "CRYPTOGRAM_3DS"
+```kotlin
+    val SUPPORTED_METHODS = listOf(
+            "PAN_ONLY",
+            "CRYPTOGRAM_3DS")
+```
 
-Step by step short instruction:
-* Press Google Pay button to get token
-* Call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
-* If you got Awaiting3DS, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
+### Payment networks you can use
+Visa and MasterCard
+```kotlin
+val SUPPORTED_NETWORKS = listOf(
+        "MASTERCARD",
+        "VISA")
+```
 
-Customers will be able to use next payment systems:
-* Visa
-* MasterCard
-
-In order to process transactions via PayOnline gateway you should specify next parameters:
+### Parameters you should specify to use PayOnline as gateway
 * gateway: 'payonline'
 * gatewayMerchantId: '123' - your MID in PayOnline system
-
 ```kotlin
 val PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS = mapOf(
         "gateway" to "payonline",
@@ -187,16 +214,27 @@ val PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS = mapOf(
     )
 ```
 
-```kotlin
-val SUPPORTED_NETWORKS = listOf(
-        "MASTERCARD",
-        "VISA")
-```
+### Billing and Shipping address parameters
+No any additional BillingAddress or ShippingAddress parameters are required
 
-Full example you can find in our github repository [PayOnline.AndroidSample](https://github.com/PayOnlineSystem/PayOnline.AndroidSample).
+### How to send encrypted payment data to PayOnline
+Use <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API\
+You should pass encrypted data in "PaymentToken" parameter of the request.\
+To work with PayOnline API in android you can use [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
+
+### All steps together
+1. Add button on the view
+2. Press Google Pay button to get token
+3. Call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
+4. If you got Awaiting3DS in response, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
+
+To work with PayOnline API you need to use [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
+
+### Code example
+Full example you can find in our github repository [PayOnline.AndroidSample](https://github.com/PayOnlineSystem/PayOnline.AndroidSample).\
 Also you can see [Example](https://github.com/google-pay/android-quickstart) of using Google Pay API from Google.
 
-When implement integration please use:
+### When implement integration please use
 
 * [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview)
 
@@ -206,6 +244,6 @@ When implement integration please use:
 
  
 
-## 2. Get Google approve.
+## Get Google approve.
 
 Please complete [application](https://services.google.com/fb/forms/googlepayAPIenable). After that, a Google point of contact will reach out you and instruct on further steps. In this step, you will provide your Google point of contact with a link to your integration or apk file to check the integration.
