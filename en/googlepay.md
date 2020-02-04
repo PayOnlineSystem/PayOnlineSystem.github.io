@@ -17,24 +17,32 @@ By Google Pay API, the customer can pay using:
 
 # Integration steps
 
-## 1. Add Google Pay Button
+## Web.
 
-### Web.
-
-Step by step short instruction:
+### Step by step short instruction
 * Get token (press Google Pay button)
 * Pass token to your backend
 * Call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
 * If you got Awaiting3DS, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
 
-Customers will be able to use next payment systems:
-* Visa
-* MasterCard
+### Authorization methods you can use
+"PAN_ONLY" and "CRYPTOGRAM_3DS"
+```javascript
+    const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
+```
 
-Parameters you should specify to process transactions via PayOnline gateway:
+### Payment networks you can use
+Visa and MasterCard
+```javascript
+    const allowedCardNetworks = ["MASTERCARD", "VISA"];
+```
 
+### Parameters you should specify to use PayOnline as gateway
 * gateway: 'payonline'
 * gatewayMerchantId: '123' - your MID in PayOnline system
+
+### Billing and Shipping address parameters
+No any additional BillingAddress or ShippingAddress parameters are required
 
 Example shows how initialize Google Pay button with PayOnline specific parameters, get token and pass to backend. 
 ```javascript
@@ -206,6 +214,6 @@ When implement integration please use:
 
  
 
-## 2. Get Google approve.
+## Get Google approve.
 
 Please complete [application](https://services.google.com/fb/forms/googlepayAPIenable). After that, a Google point of contact will reach out you and instruct on further steps. In this step, you will provide your Google point of contact with a link to your integration or apk file to check the integration.
