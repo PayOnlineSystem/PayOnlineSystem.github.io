@@ -186,12 +186,14 @@ When implement integration please use:
 
 * [Google Pay Web Brand Guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines)
 
-### Android.
+## Android.
 
 ### Authorization methods you can use
 "PAN_ONLY" and "CRYPTOGRAM_3DS"
-```javascript
-    const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
+```kotlin
+    val SUPPORTED_METHODS = listOf(
+            "PAN_ONLY",
+            "CRYPTOGRAM_3DS")
 ```
 
 ### Payment networks you can use
@@ -217,12 +219,13 @@ No any additional BillingAddress or ShippingAddress parameters are required
 
 ### How to send encrypted payment data to PayOnline
 Review <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API\
-You should pass encrypted data in "PaymentToken" parameter of the request.
+You should pass encrypted data in "PaymentToken" parameter of the request.\
+To work with PayOnline API in android you can use [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
 
 ### All steps together
 1. Add button on the view
 2. Press Google Pay button to get token
-3. At the backend side call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
+3. Call <a href="#/en/api?id=googlepay-method">GooglePay</a> method of PayOnline API
 4. If you got Awaiting3DS in response, then you should pass extra 3ds authentication and call <a href="#/en/api?id=complete-method">Complete</a> method
 
 To work with PayOnline API you need to use [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
