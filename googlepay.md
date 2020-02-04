@@ -16,33 +16,54 @@
 
 # Шаги интеграции
 
-## 1. Добавить кнопку Google Pay
+## Web.
 
-### Web.
-
-Краткая пошаговая инструкция:
-* Получить токен с помощью нажатия на кнопку Google Pay
-* Передать токен на ваш бэкенд
-* Вызвать <a href="#/en/api?id=googlepay-method">GooglePay</a> метод из PayOnline API
-* Если вы получили код Awaiting3DS, тогда вам надо пройти дополнительную 3ds аутентификацию, и вызвать <a href="#/en/api?id=complete-method">Complete</a> метод для завершения платежа
-
-Покупателям будут доступны платёжные системы:
-* Visa 
-* MasterCard
-
-Параметры, которые необходимо указать при проведении транзакции через шлюз PayOnline
-* gateway: 'payonline'
-* gatewayMerchantId: '123' - ваш MID в системе PayOnline
-
-Пример на javascript показывает, как инициализировать кнопку Google Pay с параметрами для шлюза PayOnline
+### Доступные методы авторизации
+"PAN_ONLY" и "CRYPTOGRAM_3DS"
 ```javascript
-const allowedCardNetworks = ["MASTERCARD", "VISA"];
+    const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
+```
+
+### Доступные платёжные системы
+Visa и MasterCard
+```javascript
+    const allowedCardNetworks = ["MASTERCARD", "VISA"];
+```
+
+### Параметры которые требуется указать, чтобы использовать PayOnline в качестве шлюза
+* gateway: 'payonline'
+* gatewayMerchantId: '123' - your MID in PayOnline system
+
+### BillingAddress и ShippingAddress
+Никаких дополнительных BillingAddress или ShippingAddress параметров не требуется
+
+### Как отправить зашифрованные данные в PayOnline
+Используйте <a href="#/en/api?id=googlepay-method">GooglePay</a> метод из PayOnline API\
+Вы должны передать зашифрованные данные в параметре запроса "PaymentToken".
+
+### Все шаги вместе
+1. Добавить кнопку на страницу
+2. Получить токен (нажав на кнопку Google Pay)
+3. Передать токен вам на бэкенд
+4. Вызвать на бэкенде <a href="#/en/api?id=googlepay-method">GooglePay</a> метод из PayOnline API
+5. Если получите в ответе Awaiting3DS, тогда вам надо пройти дополнительную  3ds аутентификацию и вызвать метод <a href="#/en/api?id=complete-method">Complete</a>
+
+### Пример кода
+Пример показывает 1, 2 и 3 пункты [пошаговой инструкции](#все-шаги-вместе) (показывет как инициализировать кнопку Google Pay button с параметрами для PayOnline, получить токен и передать его на бэкенд). 
+```javascript
+
+    const baseRequest = {
+        apiVersion: 2,
+        apiVersionMinor: 0
+    };
+
+    const allowedCardNetworks = ["MASTERCARD", "VISA"];
     const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
     const tokenizationSpecification = {
         type: 'PAYMENT_GATEWAY',
         parameters: {
           'gateway': 'payonline',
-          'gatewayMerchantId': '123'//ваш MID в системе PayOnline
+          'gatewayMerchantId': '123'//your MID in PayOnline system
         }
       };
     const baseCardPaymentMethod = {
@@ -69,15 +90,12 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
             }
         );
     }
-
-    // Информация, полученная от google
     function getGooglePaymentDataRequest() {
         const paymentDataRequest = Object.assign({}, baseRequest);
         paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
         paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
         paymentDataRequest.merchantInfo = {
-            merchantName: 'Example Merchant',
-            merchantId: "YourGoogleMerchantId"
+            merchantName: 'Example Merchant'
         };
         return paymentDataRequest;
     }
@@ -89,7 +107,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
         return paymentsClient;
     }
     
-    //Обработчик загрузки Google Pay
+    //Google Pay loaded callback
     function onGooglePayLoaded() {
         const paymentsClient = getGooglePaymentsClient();
         paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
@@ -114,7 +132,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
         $("#gpay-container")[0].appendChild(button);
     }
 
-    //получение цены
+    //getting price
     function getGoogleTransactionInfo() {
         return {
             currencyCode: 'RUB',
@@ -123,7 +141,7 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
         };
     }
 
-    //обработчик нажатия кнопки G-Pay
+    //Googe Pay button handler
     function onGooglePaymentButtonClicked() {
         const paymentDataRequest = getGooglePaymentDataRequest();
         paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
@@ -140,24 +158,27 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 
     function processPayment(paymentData) {
         var token = JSON.stringify(paymentData);
-        console.log(token);
-        //отправка токена на бэкенд ...
+        //pass token to your backend, then call method googlePay of PayOnline API
         $.post("/GooglePay", token).then(function (result) {
-        if (result.Success) {
-            //оплата успешно завершена
-        } else {
-            if (result.AwaitingThreeDS) { 
-                //требуется 3ds аутентификация
-            } else {
-                //оплата отклонена
-            }
-        }
-    });
+           if (result.Success) {
+               //payment successfully completed
+           } else {
+               if (result.AwaitingThreeDS) { 
+                   //3ds authentication required
+               } else {
+                   //payment declined
+               }
+           }
+        });
     }
 ```
+В конце страницы
+```javascript
+<script async src="https://pay.google.com/gp/p/js/pay.js" onload="onGooglePayLoaded()"></script>
+````
 
 
-При интеграции следуйте правилам:
+### При интеграции следуйте правилам:
 
 * [Google Pay Web developer documentation](https://developers.google.com/pay/api/web/overview)
 
@@ -165,40 +186,58 @@ const allowedCardNetworks = ["MASTERCARD", "VISA"];
 
 * [Google Pay Web Brand Guidelines](https://developers.google.com/pay/api/web/guides/brand-guidelines)
 
-### Android.
+## Android.
 
-Для работы с PayOnline API вам надо использовать [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
-
-Краткая пошаговая инструкция:
-* Нажать на кнопку Google Pay для получения токена
-* Вызвать <a href="#/en/api?id=googlepay-method">GooglePay</a> метод из PayOnline API
-* Если вы получили код Awaiting3DS, тогда вам надо пройти дополнительную 3ds аутентификацию, и вызвать <a href="#/en/api?id=complete-method">Complete</a> метод для завершения платежа
-
-Покупателям будут доступны платёжные системы::
-* Visa
-* MasterCard
-
-Чтобы провести транзакцию через шлюз PayOnline вам надо указать следующие параметры:
-* gateway: 'payonline'
-* gatewayMerchantId: '123' - ваш MID в системе PayOnline
-
+### Доступные методы авторизации
+"PAN_ONLY" и "CRYPTOGRAM_3DS"
 ```kotlin
-val PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS = mapOf(
-        "gateway" to "payonline",
-        "gatewayMerchantId" to "123" //ваш MID в системе PayOnline
-    )
+    val SUPPORTED_METHODS = listOf(
+            "PAN_ONLY",
+            "CRYPTOGRAM_3DS")
 ```
 
+### Доступные платёжные системы
+Visa и MasterCard
 ```kotlin
 val SUPPORTED_NETWORKS = listOf(
         "MASTERCARD",
         "VISA")
 ```
 
-Полный пример вы можете найти в нашем github репозитории [PayOnline.AndroidSample](https://github.com/PayOnlineSystem/PayOnline.AndroidSample).
-Также можете посмотреть [пример](https://github.com/google-pay/android-quickstart) использования Google Pay API от Google.
+### Параметры которые требуется указать, чтобы использовать PayOnline в качестве шлюза
+* gateway: 'payonline'
+* gatewayMerchantId: '123' - your MID in PayOnline system
+```kotlin
+val PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS = mapOf(
+        "gateway" to "payonline",
+        "gatewayMerchantId" to "123" //Your MID in PayOnline system
+    )
+```
 
-При интеграции следуйте правилам:
+### BillingAddress и ShippingAddress
+Никаких дополнительных BillingAddress или ShippingAddress параметров не требуется
+
+### Как отправить зашифрованные данные в PayOnline
+Используйте <a href="#/en/api?id=googlepay-method">GooglePay</a> метод из PayOnline API\
+Вы должны передать зашифрованные данные в параметре запроса "PaymentToken".\
+Для работы с PayOnline API в android вы можете использовать [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
+
+### Все шаги вместе
+1. Добавить кнопку на view
+2. Нажать кнопку, чтобы получить токен
+3. Вызвать <a href="#/en/api?id=googlepay-method">GooglePay</a> метод из PayOnline API
+4. Если вы получите в ответе Awaiting3DS, тогда вам надо пройти дополнительную 3ds аутентификацию и вызвать метод <a href="#/en/api?id=complete-method">Complete</a>
+
+Для работы с PayOnline API вы можете использовать [PayOnline SDK for Android](https://github.com/PayOnlineSystem/PayOnline.SDK.Android)
+
+### Пример кода
+Полный пример вы можете найти в нашем репозитории [PayOnline.AndroidSample](https://github.com/PayOnlineSystem/PayOnline.AndroidSample).\
+Так-же вы можете просмотреть [Пример](https://github.com/google-pay/android-quickstart) использования Google Pay API от Google.
+
+
+
+
+### При интеграции следуйте правилам
 
 * [Google Pay Android developer documentation](https://developers.google.com/pay/api/android/overview)
 
