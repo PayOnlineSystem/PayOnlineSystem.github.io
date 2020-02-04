@@ -32,8 +32,8 @@ Visa and MasterCard
 ```
 
 ### Parameters you should specify to use PayOnline as gateway
-* gateway: 'payonline'
-* gatewayMerchantId: '123' - your MID in PayOnline system
+* 'gateway' : 'payonline'
+* 'gatewayMerchantId' : '123' - your MID in PayOnline system
 
 ### Billing and Shipping address parameters
 No any additional BillingAddress or ShippingAddress parameters are required
