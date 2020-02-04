@@ -1048,8 +1048,8 @@ In case of XML:
 
 ## **GooglePay method**
 
-Endpoint url:_ [https://secure.payonlinesystem.com/payment/transaction/googlepay/](https://secure.payonlinesystem.com/payment/transaction/googlepay/) \
-Description:_ Authorizes a payment transaction. \
+Endpoint url: [https://secure.payonlinesystem.com/payment/transaction/googlepay/](https://secure.payonlinesystem.com/payment/transaction/googlepay/) \
+Description: Authorizes a payment transaction. \
 Http-method: POST \
 Encoding: UTF-8
 
