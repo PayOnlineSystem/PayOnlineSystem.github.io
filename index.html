@@ -34,44 +34,10 @@
     repo: '',
     loadSidebar: true,
     subMaxLevel: 2,
-    logo: 'payonline-logo.png height="100px"',
-    search: [
-      '/',            // => /README.md
-      '/api',       // => /guide.md
-      '/en/', // => /get-started.md
-      '/en/api',      // => /zh-cn/README.md
-    ],
-    search: {
-      maxAge: 86400000, // Expiration time, the default one day
-      placeholder: 'Type to search',
-
-      // Localization
-      placeholder: {
-        '/en/': 'Search',
-        '/': 'Поиск'
-      },
-
-      noData: 'No Results!',
-
-      // Localization
-      noData: {
-        '/en/': 'No results',
-        '/': 'Нет результатов'
-      },
-
-      // Headline depth, 1 - 6
-      depth: 3,
-
-      hideOtherSidebarContent: false, // whether or not to hide other sidebar content
-
-      // To avoid search index collision
-      // between multiple websites under the same domain
-      namespace: 'website-1',
-    }
+    logo: 'payonline-logo.png height="100px"'
   }
 </script>
 <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-<script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
 
 
 </html>

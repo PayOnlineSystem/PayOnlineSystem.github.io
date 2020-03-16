@@ -1,4 +1,4 @@
-# **Термины и сокращения**
+# Термины и сокращения
 
 
 <table>
@@ -44,7 +44,7 @@
   </tr>
 </table>
 
-# **Типы транзакций**
+# Типы транзакций
 
 <table>
   <tr>
@@ -89,7 +89,7 @@
   </tr>
 </table>
 
-# **Статусы транзакций**
+# Статусы транзакций
 
 **Pending** — авторизация транзакции подтверждена, деньги заблокированы на счету держателя в ожидании списания.
 
@@ -102,14 +102,14 @@
 **PreAuthorized** — предварительная авторизация. Разрешение на списание получено, деньги заблокированы на счету, но списание произойдет только после подтверждения транзакции ТСП. Если подтверждение не получено в установленный срок (оговаривается индивидуально), транзакция будет автоматически отменена.
 
 
-# **Типы платежей**
+# Типы платежей
 
 **Прямые** — после авторизации деньги блокируются на счете держателя и автоматически списываются через сутки. Данный тип платежа включается для всех ТСП при подключении к системе.
 
 **С предварительной авторизацией** — после авторизации деньги блокируются на счете, но списание происходит только после подтверждения транзакции ТСП. Данный тип платежа включается по требованию ТСП.
 
 
-# **Переход статусов**
+# Переход статусов
 
 При запросе на авторизацию транзакции, данные проверяются в нескольких уровнях, и, в зависимости от результатов проверки, транзакция переходит в **Pending** (успешная авторизация) или **Declined** (отклоненная транзакция).
 
@@ -119,7 +119,7 @@
 
 Транзакцию в статусе **Settled** отменить нельзя, т.к. она считается завершенной, однако, можно выполнить операцию по возврату денежных средств — **Refund**. При этой операции создается новая транзакция с типом **Refund**, которой могут быть присвоены статусы **Pending** или **Declined**. Сумма возврата может быть меньше или равна сумме покупки. Операции возврата денежных средств возможно осуществлять несколько раз, до тех пор, пока сумма возвращенных денег не будет равна сумме оригинальной транзакции.
 
-# **Схемы переходов**
+# Схемы переходов
 
 <img src="/img/auth.jpg">
 
@@ -128,7 +128,7 @@
 <img src="/img/preauth.jpg">
 
 
-# **Методы API**
+# Методы API
 
 Все вызовы методов осуществляются по протоколу HTTPS.
 
@@ -136,7 +136,7 @@
 При формировании запросов к методам важным является только регистр символов; порядок следования параметров не важен.
 
 
-## **Метод Auth**
+## Метод Auth
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/auth/](https://secure.payonlinesystem.com/payment/transaction/auth/) \
 Описание: авторизует карту и блокирует на ней указанную сумму. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
@@ -616,7 +616,7 @@ Id={Id}&Operation=Auth&Result={Result}&Code={Code}&Status={Status}&binCountry={C
 </transaction>
 ```
 
-## **Метод ApplePay**
+## Метод ApplePay
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/applepay/](https://secure.payonlinesystem.com/payment/transaction/applepay/) \
 Описание: авторизует карту и блокирует на ней указанную сумму. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
@@ -1072,7 +1072,7 @@ Id={Id}&Operation=Auth&Result={Result}&Code={Code}&Status={Status}&binCountry={C
 </transaction>
 ```
 
-## **Метод GooglePay**
+## Метод GooglePay
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/googlepay/](https://secure.payonlinesystem.com/payment/transaction/googlepay/) \
 Описание: авторизует карту и блокирует на ней указанную сумму. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
@@ -1556,7 +1556,7 @@ Id={Id}&Operation=Auth&Result={Result}&Code={Code}&Status={Status}&binCountry={C
 </transaction>
 ```
 
-## **Метод Moto**
+## Метод Moto
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/moto/](https://secure.payonlinesystem.com/payment/transaction/moto/) \
 Описание: авторизует карту и блокирует на ней указанную сумму. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
@@ -2040,7 +2040,7 @@ Id={Id}&Operation=Auth&Result={Result}&Code={Code}&Status={Status}&binCountry={C
 
 
 
-## **Метод 3DS**
+## Метод 3DS
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/auth/3ds/](https://secure.payonlinesystem.com/payment/transaction/auth/3ds/)  \
 Описание: авторизует карту и блокирует на ней указанную сумму после прохождения плательщиком 3DS-авторизации. Используется для авторизации платежа по карте, подписанной на 3-D Secure. Следует использовать, если метод <a href="#/?id=Метод-auth">Auth</a> вернул ошибку 6001 и передал параметры **PaReq**, **ASCUrl** и **PD**.
@@ -2258,7 +2258,7 @@ MerchantId={MerchantId}&TransactionId={TransactionId}&PARes={PARes}&PD={PD}&Priv
 Формат ответа метода 3DS полностью совпадает с форматом ответа метода <a href="#/?id=Метод-auth">Auth</a>.
 
 
-## **Метод Complete**
+## Метод Complete
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/complete/](https://secure.payonlinesystem.com/payment/transaction/complete/)
 
@@ -2487,7 +2487,7 @@ TransactionId={TransactionId}&Operation=Complete&Amount={Amount}&Result={Result}
 
 
 
-## **Метод Rebill**
+## Метод Rebill
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/rebill/](https://secure.payonlinesystem.com/payment/transaction/rebill/)
 
@@ -2807,7 +2807,7 @@ Id={Id}&Operation=Rebill&Result={Result}&Status={Status}&Code={Code}&ErrorCode={
 
 
 
-## **Метод Refill**
+## Метод Refill
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/refill/](https://secure.payonlinesystem.com/payment/transaction/refill/)
 
@@ -3076,7 +3076,7 @@ Id={Id}&Operation=Refill&Result={Result}&Status={Status}&Code={Code}&ErrorCode={
 
 
 
-## **Метод Refill_OCT**
+## Метод Refill_OCT
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/refill_oct/](https://secure.payonlinesystem.com/payment/transaction/refill_oct/)
 
@@ -3373,7 +3373,7 @@ Id={Id}&Operation=Refill_OCT&Result={Result}&Status={Status}&Code={Code}&ErrorCo
 
 
 
-## **Метод Void**
+## Метод Void
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/void/](https://secure.payonlinesystem.com/payment/transaction/void/)
 
@@ -3549,7 +3549,7 @@ TransactionId={TransactionId}&Operation=Void&Result={Result}&Message={Message}
 
 
 
-## **Метод Refund**
+## Метод Refund
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/refund/](https://secure.payonlinesystem.com/payment/transaction/refund/)
 
@@ -3748,7 +3748,7 @@ TransactionId={TransactionId}&Operation=Refund&Amount={Amount}&Result={Result}&M
 
 
 
-## **Метод Check**
+## Метод Check
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/check /](https://secure.payonlinesystem.com/payment/transaction/check%20/) \
 Описание: Метод проверяет информацию о карте плательщика и платеже в системе AntiFraud PayOnline. Передача параметров метода выполняется исключительно методом POST в кодировке UTF-8.
@@ -4096,7 +4096,7 @@ Id={Id}&Operation=Check&Result={Result}
 
 
 
-## **Метод Search**
+## Метод Search
 
 Адрес: [https://secure.payonlinesystem.com/payment/search/](https://secure.payonlinesystem.com/payment/search/)
 
@@ -4320,7 +4320,7 @@ TransactionId={TransactionId}&Amount={Amount}&Currency={Currency}&Order={OrderId
 Если платеж не найден, то возвращается пустая строка.
 
 
-## **Метод List**
+## Метод List
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/list/](https://secure.payonlinesystem.com/payment/transaction/list/)
 
@@ -4751,7 +4751,7 @@ Real — «боевой» шлюз.
 
 
 
-## **Метод Card2Card**
+## Метод Card2Card
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/card2card/](https://secure.payonlinesystem.com/payment/transaction/card2card/)
 
@@ -5054,7 +5054,7 @@ TransactionId={TransactionId}&Operation=Refill&Result={Result}&Status={Status}&C
 
 
 
-## **Метод Card2Card 3DS**
+## Метод Card2Card 3DS
 
 Адрес: [https://secure.payonlinesystem.com/payment/transaction/card2card/3ds/](https://secure.payonlinesystem.com/payment/transaction/card2card/3ds/)
 
@@ -5202,7 +5202,7 @@ Error — платеж не выполнен.
 
 
 
-# **Адрес обратной связи (CallBackUrl)**
+# Адрес обратной связи (CallBackUrl)
 
 Адрес обратной связи (CallBackUrl) служит для уведомления сервера ТСП об успешных или неуспешных платежах. Параметры вызова, такие, как адрес уведомления об успешных платежах, адрес для уведомления о неуспешных платежах, метод и кодировка настраиваются в личном кабинете ТСП. \
 Адрес вызывается со следующими параметрами:
@@ -5420,7 +5420,7 @@ DateTime={DateTime}&TransactionID={TransactionID}&OrderId={OrderId}&Amount={Amou
 
 
 
-# **Параметр SecurityKey**
+# Параметр SecurityKey
 
 Параметр «SecurityKey» вычисляется хеш-функцией **md5 **от строки запроса, дополненной секретным ключом ТСП.
 
@@ -5493,7 +5493,7 @@ MerchantId={MerchantId}&OrderId={OrderId}&Amount={Amount}&Currency={Currency}&Pa
 Значение параметра PaymentKey ТСП получает при активации.
 
 
-# **Коды ответов**
+# Коды ответов
 
 Возможные значения параметра «Code» в результате выполнения методов 
 

@@ -1,4 +1,4 @@
-# **Terms and abbreviations**
+# Terms and abbreviations
 
 
 <table>
@@ -53,7 +53,7 @@
 </table>
 
 
-# **Types of transactions**
+# Types of transactions
 
 **Purchase**—a purchase, money transfer from the customer (cardholder)account  to the merchant account.
 
@@ -75,13 +75,13 @@
 *   **Declined**—transaction is declined (authorization is not approved).
 *   **PreAuthorized**—preliminary authorization. Debiting permission is received, money is blocked on the account, but debiting will happen only after transaction approval by the merchant. If permission is not received at the stated time (discussed individually), the transaction will be declined automatically.
 
-# **Types of payments**
+# Types of payments
 
 **Direct** — after authorization money is blocked on the account of cardholder and is written off automatically in 24 hours. This type of payment is set for all merchants integrated to the system by default.
 
 **With preliminary authorization** — after authorization money is blocked on the account, but writing off happens only after transaction approval by merchant. This payment type is set at the  merchant request.
 
-# **Transition statuses**
+# Transition statuses
 
 At the moment of transaction authorization request, data is verified on several levels and depending on the results of verification, the transaction changes its status to **Pending** (successful authorization) or **Declined** (declined transaction).
 
@@ -91,21 +91,21 @@ Transaction in **Pending** status can be cancelled within 24 hours from the 
 
 Transaction in status **Settled** cannot be cancelled, as it is considered to be accomplished, however it is possible to fulfill the refund operation — **Refund**. When making this operation a new transaction with type **Refund** is created, and statuses **Pending** or **Declined** can be assigned to it. Refundable amount can be less or equal to the   purchase amount. Refund operation can be made several times, unless the amount of the refunded money is equal to the amount of the original transaction.
 
-# **Transition schema**
+# Transition schema
 
-## **Direct payment**
+## Direct payment
 
 <img src="en/img/auth.jpg">
 
-## **Refund**
+## Refund
 
 <img src="en/img/refund.jpg">
 
-## **Payment with preliminary authorization**
+## Payment with preliminary authorization
 
 <img src="en/img/preauth.jpg">
 
-# **API Methods**
+# API Methods
 
 API method is a URL wich accepts POST HTTP-requests. \
 All methods must be called over HTTPS protocol.
@@ -133,7 +133,7 @@ For **xml **response body will contain xml with the root name “transaction�
 ```
 
 
-## **Auth method**
+## Auth method
 
 Endpoint url:_ [https://secure.payonlinesystem.com/payment/transaction/auth/](https://secure.payonlinesystem.com/payment/transaction/auth/) \
 Description:_ Authorizes a payment transaction. \
@@ -602,7 +602,7 @@ In case of XML:
 ```
 
 
-## **ApplePay method**
+## ApplePay method
 
 Endpoint url:_ [https://secure.payonlinesystem.com/payment/transaction/applepay/](https://secure.payonlinesystem.com/payment/transaction/applepay/) \
 Description:_ Authorizes a payment transaction. \
@@ -1046,7 +1046,7 @@ In case of XML:
 </transaction>
 ```
 
-## **GooglePay method**
+## GooglePay method
 
 Endpoint url: [https://secure.payonlinesystem.com/payment/transaction/googlepay/](https://secure.payonlinesystem.com/payment/transaction/googlepay/) \
 Description: Authorizes a payment transaction. \
@@ -1517,7 +1517,7 @@ In case of XML:
 ```
 
 
-## **Moto method**
+## Moto method
 
 Endpoint url:_ [https://secure.payonlinesystem.com/payment/transaction/moto/](https://secure.payonlinesystem.com/payment/transaction/moto/) \
 Description:_ Authorizes a payment transaction. \
@@ -1986,7 +1986,7 @@ In case of XML:
 ```
 
 
-## **3DS method**
+## 3DS method
 
 Endpoint url: [https://secure.payonlinesystem.com/payment/transaction/auth/3ds/](https://secure.payonlinesystem.com/payment/transaction/auth/3ds/) Description: Authorizes a payment transaction after the customer completes 3DS-authorization_._Method_ _is used when [Auth](#auth-method) returns error code 6001 and passes parameters **PaReq**, **ASCUrl** и **PD**. \
 Http-method: POST \
@@ -2193,7 +2193,7 @@ Parameter values should be substituted instead of expressions in braces.  \
 Merchant receives parameter values such as MerchantId and PrivateSecurityKey at account activation. \
 The response format of 3DS method is the same as response format of [Auth](#auth-method).
 
-## **Complete method**
+## Complete method
 
 Endpoint url: [https://secure.payonlinesystem.com/payment/transaction/complete/](https://secure.payonlinesystem.com/payment/transaction/complete/) \
 Description: _confirms preliminarily authorized transactions in status [PreAuthorized](#Transition=statuses).  \
@@ -2416,7 +2416,7 @@ In case of XML and confirmed amount is indicated:
 ```
 
 
-## **Rebill method**
+## Rebill method
 
 Endpoint url: [https://secure.payonlinesystem.com/payment/transaction/rebill/](https://secure.payonlinesystem.com/payment/transaction/rebill/) \
 Description: Authorizes a subsequent payment transaction_. _Transaction is created using the same billing info (card number etc.) which was used during the first [Auth](#auth-method) or [ApplePay](#ApplePay-method) request, when customer specified his billing information. \
@@ -2713,7 +2713,7 @@ after the initial declined response. \
 5310 Card amount limit exceeded</em></p>
 
 
-## **Refill method**
+## Refill method
 
 Endpoint URL: [https://secure.payonlinesystem.com/payment/transaction/refill/](https://secure.payonlinesystem.com/payment/transaction/refill/)<span style="text-decoration:underline;"> \
 Description: _</span>creates a new transaction with [Refill type](#Types-of-transactions). Transaction is created using the same billing info, which was used during the first [Auth](#auth-method) request, when customer specified his billing information.. Http- Http-method: GET or POST \
@@ -2958,7 +2958,7 @@ In case of XML:
 ```
 
 
-## **Refill_OCT method**
+## Refill_OCT method
 
 Endpoint URL: [https://secure.payonlinesystem.com/payment/transaction/refill_oct/](https://secure.payonlinesystem.com/payment/transaction/refill_oct/)<span style="text-decoration:underline;"> \
 Description: _</span>creates a new transaction with [Refill type](#Types-of-transactions).  Transaction is created using the same billing info, which was used during the first [Auth](#auth-method) request, when customer specified his billing information. 
@@ -3230,7 +3230,7 @@ In case of XML:
 ```
 
 
-## **Void method**
+## Void method
 
 Endpoint url: [https://secure.payonlinesystem.com/payment/transaction/void/](https://secure.payonlinesystem.com/payment/transaction/void/) \
 Description: _Cancels transaction in [Pending](#Transition-statuses) or [PreAuthorized](#Transition-statuses) status or a previously authorized transaction.  \
@@ -3405,7 +3405,7 @@ In case of XML:
 ```
 
 
-## **Refund method**
+## Refund method
 
 Endpoint url: [https://secure.payonlinesystem.com/payment/transaction/refund/](https://secure.payonlinesystem.com/payment/transaction/refund/) \
 Description: _Creates a new transaction with type [Refund](#Refund-method) for transferring money back to the customer account. Valid for transactions in status [Settled](#Transition-statuses). \
@@ -3597,7 +3597,7 @@ In case of XML:
 ```
 
 
-## **Check method**
+## Check method
 
 Endpoint URL: [https://secure.payonlinesystem.com/payment/transaction/check /](https://secure.payonlinesystem.com/payment/transaction/check%20/) \
 Description:_ Method checks information about payer’s card and the payment in PayOnline AntiFraud system. \
@@ -3941,7 +3941,7 @@ In case of XML:
 ```
 
 
-## **Search method**
+## Search method
 
 Endpoint url: [https://secure.payonlinesystem.com/payment/search/](https://secure.payonlinesystem.com/payment/search/) \
 Description: returns information only on successful payments. The search can be based on OrderId or TransactionId parameter. \
@@ -4165,7 +4165,7 @@ In case of XML:
 
 If payment is not found, then empty string is returned. 
 
-## **List method**
+## List method
 
 Endpoint url: [https://secure.payonlinesystem.com/payment/transaction/list/](https://secure.payonlinesystem.com/payment/transaction/list/) \
 Description_: returns the list of all transactions for the stated period of time in UTC+0 time zone. If parameters DateFrom and DateTill are specified in yyyy–MM–dd format, then transactions are returned from the start date 00<span>:</span>00:00 to the end date 23<span>:</span>59:59. \
@@ -4580,7 +4580,7 @@ If ContentType = xml, then the transaction will be uploaded in XML format, 
 ```
 
 
-## **Card2Card method**
+## Card2Card method
 
 Endpoint url: [https://secure.payonlinesystem.com/payment/transaction/card2card/](https://secure.payonlinesystem.com/payment/transaction/card2card/) \
 Description_: Creates new transfer from card to card. Transaction is created using the same billing info, which was used during the first <a href="#/en/api?id=auth-method">Auth</a> request, when customer specified his billing information. \
@@ -4869,7 +4869,7 @@ In case of XML:
 ```
 
 
-## **Card2Card 3DS Method**
+## Card2Card 3DS Method
 
 Endpoint url: [https://secure.payonlinesystem.com/payment/transaction/card2card/3ds/](https://secure.payonlinesystem.com/payment/transaction/card2card/3ds/) \
 Description: _Creates the transfer from one card to another after payer 3DS authorization. It is used to complete the card transfer, signedfor  3 D Secure.  \
@@ -5017,7 +5017,7 @@ Error—payment is not performed.
 </table>
 
 
-# **CallbackURL**
+# CallbackURL
 
 CallBackUrl is the merchant defined URL, where he receives information about successful or unsuccessful payments after [Auth](#auth-method), [ApplePay](#ApplePay-method) or [Rebill](#rebill-method) method is called. CallBack parameters, such as URL for successful payments and URL for unsuccessful payments, method and coding are set in the Merchant account.The following parameters are passed to CallbackUrl:
 
@@ -5222,7 +5222,7 @@ DateTime={DateTime}&TransactionID={TransactionID}&OrderId={OrderId}&Amount={Amou
 ```
 
 
-# **SecurityKey parameter**
+# SecurityKey parameter
 
 Parameter “SecurityKey” is calculated by the hash function **md5 **from the query line, supplemented with merchant's secrect key.
 
@@ -5288,7 +5288,7 @@ where {PaymentKey} —PaymentKey key.
 
 Merchant receives PaymentKey parameter at his account activation.
 
-# **Response codes**
+# Response codes
 
 Possible values of “Code” parameter received as the result of [Auth](#auth-method), [ApplePay](#ApplePay-method) or [Rebill](#rebill-method) methods: \
 Code 200 — operation completed successfully. \

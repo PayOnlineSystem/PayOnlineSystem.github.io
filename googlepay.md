@@ -1,3 +1,4 @@
+# 
 # Описание
 
 ### <span>Google Pay&trade;</span> это быстрый и безопасный метод оплаты в «один клик». 
@@ -8,7 +9,7 @@
 2) непривязанной карты. (Нетокенизированная карта). В этом случае вы должны получить токен,  передать его в метод Auth, и пройти процедуру 3ds аутентификации.
 
  
-# Условия для интеграции:
+# Условия для интеграции
 
 * ваш сайт должен работать по схеме HTTPS и иметь валидный TLS сертификат для домена. 
 * вы должны соблюдать [Правила использования Google Pay API](https://payments.developers.google.com/terms/aup)
@@ -245,6 +246,6 @@ val PAYMENT_GATEWAY_TOKENIZATION_PARAMETERS = mapOf(
 
 * [Google Pay Android brand guidelines](https://developers.google.com/pay/api/android/guides/brand-guidelines).
 
-## 2. Получить одобрение и зарегистрироваться в Google.
+## Получить одобрение и зарегистрироваться в Google.
 
 Для этого вам надо заполнить [форму](https://services.google.com/fb/forms/googlepayAPIenable). После этого с вами свяжется представитель Google и проинструктирует о дальнейших шагах. Будьте готовы отправить в Google ссылку на вашу интеграцию или apk файл для оценки.
